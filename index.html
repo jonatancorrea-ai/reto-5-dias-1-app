@@ -177,6 +177,9 @@ footer .legal{width:100%;font-size:12px;color:var(--text-3);margin-top:4px;}
 }
 
 /* ═══ Hero ═══ */
+.task-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px;}
+.task .task-actions .btn{margin-top:0;}
+@media (max-width:760px){.task-actions{flex-direction:column;}}
 #empezar{scroll-margin-top:52px;}
 .head-side{margin-top:32px;padding:24px 20px;}
 .head-side .facts{margin-top:0;}
@@ -254,8 +257,8 @@ html{scroll-behavior:smooth;}
   <!-- ═══════════ DÍA 1 ═══════════ -->
   <section class="day" id="dia-1">
     <div class="eyebrow">Día 1 · Disponible</div>
-    <h2 class="day-title" id="empezar">De tu idea a una app funcionando</h2>
-    <p class="day-intro">Hoy conviertes tu idea en una app que ya puedes ver y usar. Dos herramientas gratis: LYTH para crear el plan y Google AI Studio para construirla.</p>
+    <h2 class="day-title" id="empezar">De tu idea a la primera versión de tu app</h2>
+    <p class="day-intro">Hoy conviertes tu idea en un plan claro y en la primera versión de tu app, lista para ver en pantalla. Dos herramientas gratis: LYTH para crear el plan y Google AI Studio para construirla.</p>
 
     <div class="sub reveal">
       <h3 class="sub-title">Así se hace, paso a paso</h3>
@@ -331,9 +334,12 @@ html{scroll-behavior:smooth;}
 
     <div class="task panel reveal">
       <div class="eyebrow">Tu tarea de hoy</div>
-      <h3>Comparte tu idea en la comunidad</h3>
-      <p>Escribe en una línea qué app vas a crear y para quién. Si ya la construiste, sube una captura. Ahí resolvemos dudas y avanzamos juntos.</p>
-      <a class="btn btn-primary" href="https://chat.whatsapp.com/ErqyyFCILQFCrt0GjFIvIf?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener">Compartir en El Club</a>
+      <h3>Crea tu cuenta gratis en LYTH y cuéntale tu idea</h3>
+      <p>En minutos te ayuda a construir el plan experto de tu app. Cuando lo tengas, compártelo en la comunidad y avanzamos juntos.</p>
+      <div class="task-actions">
+        <a class="btn btn-primary" href="https://lyth.app" target="_blank" rel="noopener">Crear mi cuenta en LYTH</a>
+        <a class="btn btn-ghost" href="https://chat.whatsapp.com/ErqyyFCILQFCrt0GjFIvIf?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener">Compartir en El Club</a>
+      </div>
     </div>
   </section>
 
