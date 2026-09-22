@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reto 5 días, 1 app · Kit de recursos · MODO FUTURO</title>
+<meta name="description" content="Tu primera app publicada en internet, sin saber programar. Kit de recursos del reto 5 días, 1 app de MODO FUTURO.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070b14; --bg-2:#0c1322;
+  --glass:rgba(120,150,200,.07); --glass-2:rgba(120,150,200,.11);
+  --line:rgba(169,203,242,.16); --line-strong:rgba(169,203,242,.32);
+  --text:#f4f4f2; --text-2:#b4bdd0; --text-3:#7a86a3;
+  --blue:#a9cbf2; --blue-2:#6f9fe0; --blue-3:#3f6fbf;
+  --slate:#2e3a55;
+  --sans:'Manrope',system-ui,sans-serif; --serif:'Source Serif 4',Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{-webkit-font-smoothing:antialiased;background:var(--bg);}
+body{font-family:var(--sans);color:var(--text);font-size:15px;line-height:1.7;overflow-x:hidden;min-height:100vh;background:var(--bg);position:relative;}
+body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    linear-gradient(115deg,transparent 38%,rgba(111,159,224,.10) 52%,transparent 64%),
+    radial-gradient(900px 600px at 85% 8%,rgba(63,111,191,.22),transparent 60%),
+    radial-gradient(700px 500px at 10% 70%,rgba(46,58,85,.35),transparent 65%),
+    linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 55%,var(--bg) 100%);}
+a{color:var(--blue);}
+.wrap{max-width:860px;margin:0 auto;padding:0 40px 64px;}
+
+/* Barra superior */
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:28px 0;}
+.mark{font-size:14px;font-weight:800;letter-spacing:.04em;}
+.mark .bolt{color:var(--blue);}
+.tagline-top{display:flex;align-items:center;gap:16px;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--text-2);}
+.tagline-top::before{content:'';width:56px;height:1px;background:var(--line-strong);}
+
+/* Portada */
+.head{padding:56px 0 48px;}
+h1{font-size:clamp(56px,11vw,104px);font-weight:800;letter-spacing:-.02em;line-height:.98;text-transform:uppercase;}
+h1 .accent{display:block;background:linear-gradient(180deg,#cfe3fb 0%,var(--blue) 45%,var(--blue-2) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.lede{margin-top:24px;font-family:var(--serif);font-size:clamp(20px,2.6vw,24px);line-height:1.45;color:var(--text-2);max-width:30ch;}
+.facts{list-style:none;margin-top:36px;display:grid;gap:16px;}
+.fact{display:flex;align-items:center;gap:16px;font-size:14px;line-height:1.45;color:var(--text-2);}
+.fact svg{flex:none;width:28px;height:28px;stroke:var(--blue);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+.fact b{color:var(--text);font-weight:700;display:block;}
+.live{display:inline-flex;align-items:center;gap:10px;margin-top:36px;border:1px solid var(--line-strong);background:var(--glass);border-radius:999px;padding:8px 16px;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);}
+.live b{width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 12px var(--blue);display:block;}
+
+/* Paneles de vidrio */
+.panel{background:linear-gradient(160deg,var(--glass-2),var(--glass));border:1px solid var(--line);border-radius:20px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 24px 60px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.06);}
+
+/* Recorrido */
+.stage{padding:28px 32px;margin-top:8px;}
+.label{font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--text-3);}
+.track{display:flex;margin-top:24px;border-top:1px solid var(--line-strong);list-style:none;}
+.step{flex:1;padding:16px 12px 0 0;position:relative;}
+.step .tick{position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:var(--slate);}
+.step.now .tick{background:var(--blue);box-shadow:0 0 14px var(--blue);}
+.step .n{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);}
+.step .name{font-size:14px;font-weight:700;line-height:1.35;margin-top:4px;color:var(--text-3);}
+.step.now .n,.step.now .name{color:var(--blue);}
+
+/* Días */
+.day{padding:72px 0 16px;}
+.eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);}
+.day-title{font-size:clamp(30px,4.6vw,42px);font-weight:800;letter-spacing:-.02em;line-height:1.1;margin-top:12px;}
+.day-intro{margin-top:16px;font-family:var(--serif);font-size:19px;line-height:1.55;color:var(--text-2);max-width:48ch;}
+.sub{margin-top:52px;}
+.sub-title{font-size:20px;font-weight:800;letter-spacing:-.01em;line-height:1.3;}
+.sub-note{margin-top:8px;font-family:var(--serif);font-size:16px;color:var(--text-2);max-width:56ch;}
+
+.rows{list-style:none;margin-top:24px;padding:8px 28px;}
+.row{display:grid;grid-template-columns:120px 1fr;gap:24px;padding:20px 0;border-bottom:1px solid var(--line);}
+.row:last-child{border-bottom:none;}
+.row .tag{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);padding-top:3px;}
+.row h3{font-size:16.5px;font-weight:800;letter-spacing:-.01em;line-height:1.35;}
+.row p{margin-top:4px;font-size:14.5px;line-height:1.7;color:var(--text-2);max-width:62ch;}
+.ex{margin-top:12px;padding:12px 16px;border-left:2px solid var(--blue-3);background:rgba(169,203,242,.05);border-radius:0 10px 10px 0;font-size:14px;line-height:1.6;}
+.ex span{display:block;}
+.ex .k{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);}
+.ex .bad{margin-top:6px;color:var(--text-3);text-decoration:line-through;text-decoration-color:var(--text-3);}
+.ex .good{margin-top:6px;font-family:var(--serif);font-size:15.5px;color:var(--text);}
+
+/* Herramientas */
+.tools{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px;}
+.tool{padding:28px;}
+.tool .k{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);}
+.tool h3{font-size:22px;font-weight:800;letter-spacing:-.01em;margin-top:8px;}
+.tool p{font-size:14px;color:var(--text-2);margin-top:6px;line-height:1.6;}
+.tool .btn{margin-top:20px;}
+
+/* Botones */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:inherit;font-size:14.5px;font-weight:700;border-radius:999px;padding:14px 28px;cursor:pointer;border:1px solid transparent;text-decoration:none;text-align:center;}
+.btn::after{content:'→';font-weight:700;}
+.btn-primary{background:linear-gradient(180deg,#c7defa 0%,var(--blue) 55%,#8db8ec 100%);color:#0a1224;box-shadow:0 10px 30px rgba(111,159,224,.30),inset 0 1px 0 rgba(255,255,255,.5);}
+.btn-primary:hover{filter:brightness(1.06);}
+.btn-ghost{background:var(--glass);color:var(--text);border-color:var(--line-strong);}
+.btn-ghost:hover{border-color:var(--blue);}
+.btn:focus-visible,a:focus-visible{outline:2px solid var(--blue);outline-offset:3px;}
+
+/* Tarea */
+.task{margin-top:52px;padding:36px;border-color:var(--line-strong);}
+.task h3{font-size:24px;font-weight:800;letter-spacing:-.015em;line-height:1.25;margin-top:12px;}
+.task p{margin-top:10px;font-family:var(--serif);font-size:17px;line-height:1.55;color:var(--text-2);max-width:48ch;}
+.task .btn{margin-top:28px;}
+
+/* Bloqueados */
+.locked{padding:72px 0 16px;}
+.locked .rows{margin-top:24px;}
+.locked .row h3{color:var(--text-2);}
+.locked .row p{color:var(--text-3);}
+.locked .row .tag{color:var(--text-3);}
+.state{display:inline-flex;align-items:center;gap:8px;margin-top:10px;font-size:12px;font-weight:700;letter-spacing:.01em;color:var(--text-3);}
+.state svg{width:14px;height:14px;stroke:var(--text-3);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+
+/* Cierre */
+.close{margin-top:72px;padding:44px 40px;text-align:left;}
+.close h2{font-size:clamp(30px,4.6vw,42px);font-weight:800;letter-spacing:-.02em;line-height:1.1;margin-top:12px;}
+.close p{margin-top:14px;font-family:var(--serif);font-size:18px;line-height:1.55;color:var(--text-2);max-width:46ch;}
+.close .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px;}
+
+footer{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:64px;padding-top:28px;border-top:1px solid var(--line);}
+footer .mark{font-size:13px;}
+footer .tagline-top{font-size:11px;}
+footer .legal{width:100%;font-size:12px;color:var(--text-3);margin-top:4px;}
+
+@media (prefers-reduced-motion:no-preference){
+  .btn{transition:filter .2s ease,border-color .2s ease;}
+  .live b{animation:pulse 2.6s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.35;}}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+}
+
+@media (max-width:760px){
+  .wrap{padding:0 20px 48px;}
+  .topbar{padding:22px 0;}
+  .tagline-top::before{width:32px;}
+  .head{padding:36px 0 36px;}
+  .stage{padding:24px 20px;}
+  .track{flex-direction:column;border-top:none;border-left:1px solid var(--line-strong);}
+  .step{padding:10px 0 10px 18px;}
+  .step .tick{top:18px;left:-5px;}
+  .rows{padding:4px 20px;}
+  .row{grid-template-columns:1fr;gap:4px;}
+  .row .tag{padding-top:0;}
+  .tools{grid-template-columns:1fr;}
+  .tool{padding:24px;}
+  .btn{width:100%;}
+  .task{padding:28px 22px;}
+  .close{padding:32px 22px;}
+  .panel{border-radius:16px;}
+}
+
+/* ═══ Hero ═══ */
+#empezar{scroll-margin-top:52px;}
+.head-side{margin-top:32px;padding:24px 20px;}
+.head-side .facts{margin-top:0;}
+.head-side .live{margin-top:24px;}
+.head-cta{margin-top:28px;}
+.btn-start::after{content:'↓';}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+@media (max-width:760px){
+  h1{font-size:clamp(56px,15.5vw,68px);}
+  .lede{font-size:21px;}
+  .head-cta .btn{width:100%;}
+}
+@media (min-width:900px){
+  .head{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:end;}
+  h1{font-size:clamp(72px,8vw,88px);}
+  .head-side{margin-top:0;padding:28px;}
+}
+
+/* ═══ Hover fluido ═══ */
+:root{--ease:cubic-bezier(.2,.8,.2,1);}
+@media (hover:hover) and (prefers-reduced-motion:no-preference){
+  .panel{transition:transform .45s var(--ease),border-color .45s var(--ease),box-shadow .45s var(--ease);}
+  .panel:hover{border-color:var(--line-strong);}
+  .tool:hover,.task:hover,.head-side:hover{transform:translateY(-4px);}
+  .btn{transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease),background-color .35s var(--ease),filter .35s var(--ease);}
+  .btn::after{display:inline-block;transition:transform .35s var(--ease);}
+  .btn:hover{transform:translateY(-2px);}
+  .btn:hover::after{transform:translateX(4px);}
+  .btn-start:hover::after{transform:translateY(3px);}
+  .btn-primary:hover{filter:brightness(1.05);box-shadow:0 16px 40px rgba(111,159,224,.42),inset 0 1px 0 rgba(255,255,255,.55);}
+  .btn-ghost:hover{background:var(--glass-2);border-color:var(--blue);}
+  .row h3{transition:color .35s var(--ease);}
+  .row:hover h3{color:var(--blue);}
+  .step .tick{transition:transform .35s var(--ease);}
+  .step:hover .tick{transform:scale(1.35);}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="mark">MODO FUTURO <span class="bolt">⚡</span></div>
+    <div class="tagline-top">Reto</div>
+  </div>
+
+  <header class="head">
+   <div class="head-main">
+    <h1>5 días,<span class="accent">1 app</span></h1>
+    <p class="lede">Crea tu primera app con IA, sin saber programar.</p>
+    <div class="head-cta"><button class="btn btn-primary btn-start" type="button" id="btn-empezar">Empezar el Día 1</button></div>
+   </div>
+   <div class="head-side panel">
+    <ul class="facts">
+      <li class="fact"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M7.5 14h.01M12 14h.01M16.5 14h.01M7.5 17.5h.01M12 17.5h.01"/></svg><span><b>Comienza</b>22 de septiembre de 2026</span></li>
+      <li class="fact"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18.5 14.4c1.8.8 3 2.8 3 5.6"/></svg><span><b>Exclusivo para la comunidad</b>MODO FUTURO ⚡</span></li>
+      <li class="fact"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/><path d="M12 12l7-7M16 3.5V8h4.5"/></svg><span><b>Ideal para</b>creadores, marcas y negocios</span></li>
+    </ul>
+    <div class="live"><b></b>Día 1 disponible</div>
+   </div>
+  </header>
+
+  <section class="stage panel reveal" aria-label="Recorrido del reto">
+    <h2 class="label">El recorrido</h2>
+    <ol class="track">
+      <li class="step now"><span class="tick"></span><div class="n">Día 1</div><div class="name">Plan y construcción</div></li>
+      <li class="step"><span class="tick"></span><div class="n">Día 2</div><div class="name">Base de datos</div></li>
+      <li class="step"><span class="tick"></span><div class="n">Día 3</div><div class="name">Pruebas y ajustes</div></li>
+      <li class="step"><span class="tick"></span><div class="n">Día 4</div><div class="name">Publicar en internet</div></li>
+      <li class="step"><span class="tick"></span><div class="n">Día 5</div><div class="name">Lanzamiento</div></li>
+    </ol>
+  </section>
+
+  <!-- ═══════════ DÍA 1 ═══════════ -->
+  <section class="day" id="dia-1">
+    <div class="eyebrow">Día 1 · Disponible</div>
+    <h2 class="day-title" id="empezar">De tu idea a una app funcionando</h2>
+    <p class="day-intro">Hoy conviertes tu idea en una app que ya puedes ver y usar. Dos herramientas gratis: LYTH para crear el plan y Google AI Studio para construirla.</p>
+
+    <div class="sub reveal">
+      <h3 class="sub-title">Así se hace, paso a paso</h3>
+      <ol class="rows panel">
+        <li class="row"><div class="tag">Paso 1</div><div><h3>Abre LYTH y elige Vibe Spark</h3><p>Es el modo que convierte una idea suelta en un plan completo. No necesitas escribir ningún mensaje para la IA: LYTH te hace preguntas.</p></div></li>
+        <li class="row"><div class="tag">Paso 2</div><div><h3>Responde las preguntas</h3><p>Aquí se decide la calidad de tu app. Usa los consejos de la siguiente sección antes de responder.</p></div></li>
+        <li class="row"><div class="tag">Paso 3</div><div><h3>Copia el plan experto</h3><p>Con tus respuestas, LYTH genera un plan detallado de tu app: qué hace, cómo se ve y cómo funciona por dentro. Cópialo completo.</p></div></li>
+        <li class="row"><div class="tag">Paso 4</div><div><h3>Pégalo en Google AI Studio</h3><p>Entra con tu cuenta de Google, abre la sección Build, pega el plan en el chat y envíalo. AI Studio construye la app y te muestra una vista previa.</p></div></li>
+        <li class="row"><div class="tag">Paso 5</div><div><h3>Pide ajustes, uno a la vez</h3><p>Si algo no te convence, pídelo en el mismo chat, un cambio por mensaje. Cada cambio queda guardado: si algo se daña, vuelves atrás con el botón Restore.</p></div></li>
+      </ol>
+    </div>
+
+    <div class="sub reveal">
+      <h3 class="sub-title">Cómo responder las preguntas de LYTH</h3>
+      <p class="sub-note">La IA construye exactamente lo que entiende. Mientras más claras tus respuestas, mejor el plan y mejor tu app.</p>
+      <ul class="rows panel">
+        <li class="row"><div class="tag">Problema</div><div>
+          <h3>Empieza por el problema, no por la app</h3>
+          <p>Cuenta qué dolor resuelve y para quién. Eso le da sentido a todo lo demás.</p>
+          <div class="ex"><span class="k">Ejemplo</span><span class="bad">"Una app para mi negocio."</span><span class="good">"Mi peluquería pierde citas porque respondo las reservas a mano por WhatsApp."</span></div>
+        </div></li>
+        <li class="row"><div class="tag">Usuario</div><div>
+          <h3>Describe a quien la va a usar</h3>
+          <p>Qué hace, cuánto sabe de tecnología y desde dónde la usará. No es lo mismo un dueño de negocio en su celular que un equipo en computadora.</p>
+        </div></li>
+        <li class="row"><div class="tag">Enfoque</div><div>
+          <h3>Una sola función principal</h3>
+          <p>Elige lo único que tu app debe hacer muy bien. Las demás ideas quedan para después. Una primera versión simple que funciona vale más que una grande que falla.</p>
+        </div></li>
+        <li class="row"><div class="tag">Recorrido</div><div>
+          <h3>Cuenta el uso en pasos</h3>
+          <p>Describe qué hace la persona desde que entra hasta que obtiene lo que busca.</p>
+          <div class="ex"><span class="k">Ejemplo</span><span class="good">"El cliente entra, elige el servicio, escoge un horario libre y recibe la confirmación."</span></div>
+        </div></li>
+        <li class="row"><div class="tag">Datos reales</div><div>
+          <h3>Da ejemplos concretos</h3>
+          <p>Un nombre, un precio, un servicio real. La IA entiende mucho mejor con ejemplos que con descripciones generales.</p>
+        </div></li>
+        <li class="row"><div class="tag">Estilo</div><div>
+          <h3>Di cómo quieres que se sienta</h3>
+          <p>Un color, una sensación, un modo claro u oscuro. "Moderna" no le dice nada a la IA.</p>
+          <div class="ex"><span class="k">Ejemplo</span><span class="bad">"Que se vea moderna."</span><span class="good">"Modo claro, verde oliva, sensación tranquila y ordenada, como una revista."</span></div>
+        </div></li>
+        <li class="row"><div class="tag">Límites</div><div>
+          <h3>Aclara lo que no debe hacer</h3>
+          <p>Así evitas que la IA agregue funciones que no pediste y que después cuestan arreglar.</p>
+          <div class="ex"><span class="k">Ejemplo</span><span class="good">"Sin pagos en línea y sin registro de clientes por ahora."</span></div>
+        </div></li>
+        <li class="row"><div class="tag">Seguridad</div><div>
+          <h3>Pide seguridad desde el inicio</h3>
+          <p>Si tu app guarda información de personas, dilo claro: cada usuario solo puede ver lo suyo y las claves de acceso nunca quedan a la vista. Es mucho más fácil pedirlo ahora que corregirlo después.</p>
+        </div></li>
+      </ul>
+    </div>
+
+    <div class="sub reveal">
+      <h3 class="sub-title">Las herramientas de hoy</h3>
+      <div class="tools">
+        <div class="tool panel">
+          <div class="k">Plan</div>
+          <h3>LYTH</h3>
+          <p>Responde preguntas y obtén el plan experto de tu app. Gratis.</p>
+          <a class="btn btn-primary" href="https://lyth.app" target="_blank" rel="noopener">Abrir LYTH</a>
+        </div>
+        <div class="tool panel">
+          <div class="k">Construcción</div>
+          <h3>Google AI Studio</h3>
+          <p>Pega el plan y mira cómo se construye tu app. Gratis con tu cuenta de Google.</p>
+          <a class="btn btn-ghost" href="https://aistudio.google.com" target="_blank" rel="noopener">Abrir AI Studio</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="task panel reveal">
+      <div class="eyebrow">Tu tarea de hoy</div>
+      <h3>Comparte tu idea en la comunidad</h3>
+      <p>Escribe en una línea qué app vas a crear y para quién. Si ya la construiste, sube una captura. Ahí resolvemos dudas y avanzamos juntos.</p>
+      <a class="btn btn-primary" href="https://chat.whatsapp.com/ErqyyFCILQFCrt0GjFIvIf?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener">Compartir en El Club</a>
+    </div>
+  </section>
+
+  <!-- ═══════════ DÍAS BLOQUEADOS ═══════════ -->
+  <section class="locked reveal" aria-label="Próximos días">
+    <div class="eyebrow">Próximos kits</div>
+    <ul class="rows panel">
+      <li class="row"><div class="tag">Día 2</div><div><h3>Base de datos</h3><p>Dónde se guarda la información de tu app, con seguridad para que cada usuario vea solo lo suyo.</p><div class="state"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Se desbloquea con el video del Día 2</div></div></li>
+      <li class="row"><div class="tag">Día 3</div><div><h3>Pruebas y ajustes</h3><p>Pruebas reales, detalles que se pulen y cómo proteger la IA de tu app.</p><div class="state"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Se desbloquea con el video del Día 3</div></div></li>
+      <li class="row"><div class="tag">Día 4</div><div><h3>Publicar en internet</h3><p>Guardar tu app en un lugar seguro y publicarla con su propia dirección web.</p><div class="state"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Se desbloquea con el video del Día 4</div></div></li>
+      <li class="row"><div class="tag">Día 5</div><div><h3>Lanzamiento</h3><p>La app terminada, lista para compartir, y los siguientes pasos.</p><div class="state"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Se desbloquea con el video del Día 5</div></div></li>
+    </ul>
+  </section>
+
+  <section class="close panel reveal">
+    <div class="eyebrow">MODO FUTURO: El Club</div>
+    <h2>Cada kit llega primero a la comunidad</h2>
+    <p>Aprende IA de forma simple, junto a personas que ya están construyendo. Si quieres una app hecha a la medida de tu negocio, también podemos conversarlo.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://chat.whatsapp.com/ErqyyFCILQFCrt0GjFIvIf?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener">Únete hoy al reto</a>
+      <a class="btn btn-ghost" href="https://wa.me/584142276197" target="_blank" rel="noopener">Hablar con Jonatan</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="mark">MODO FUTURO <span class="bolt">⚡</span></div>
+    <div class="tagline-top">Aprende IA sin complicaciones</div>
+    <div class="legal">Jonatan Correa · Consultor y divulgador IA · Todos los derechos reservados.</div>
+  </footer>
+
+</div>
+
+<script>
+document.getElementById('btn-empezar').addEventListener('click',function(){
+  var destino=document.getElementById('empezar');
+  var suave=!window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  destino.scrollIntoView({behavior:suave?'smooth':'auto',block:'start'});
+});
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+  },{threshold:.12});
+  els.forEach(function(e){io.observe(e);});
+})();
+</script>
+</body>
+</html>
