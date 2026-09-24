@@ -217,6 +217,74 @@ html{scroll-behavior:smooth;}
   .step .tick{transition:transform .35s var(--ease);}
   .step:hover .tick{transform:scale(1.35);}
 }
+
+/* ═══ Videos, copiar y días completados ═══ */
+.watch{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:24px;}
+.watch-k{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);margin-right:4px;}
+.chip{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700;color:var(--text);text-decoration:none;border:1px solid var(--line-strong);background:var(--glass);border-radius:999px;padding:9px 18px;}
+.chip::before{content:'▶';font-size:9px;color:var(--blue);}
+.prompt{margin-top:24px;padding:28px;}
+.prompt pre{white-space:pre-wrap;word-wrap:break-word;font-family:var(--sans);font-size:14.5px;line-height:1.7;color:var(--text);margin:0;}
+.prompt .btn{margin-top:24px;}
+.btn-copy.ok{filter:none;}
+.btn-copy::after{content:none;}
+.step.done .tick{background:var(--blue-3);}
+.step.done .n,.step.done .name{color:var(--text-2);}
+.day + .day{margin-top:24px;border-top:1px solid var(--line);}
+@media (hover:hover) and (prefers-reduced-motion:no-preference){
+  .chip{transition:border-color .35s var(--ease),background-color .35s var(--ease),transform .35s var(--ease);}
+  .chip:hover{border-color:var(--blue);background:var(--glass-2);transform:translateY(-2px);}
+}
+#empezar-2{scroll-margin-top:52px;}
+@media (max-width:760px){.prompt{padding:22px 20px;}.chip{flex:1;justify-content:center;}.watch-k{width:100%;}}
+
+/* ═══ Kits anteriores y ventana emergente ═══ */
+.past{padding:72px 0 16px;}
+.past-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-top:24px;}
+.kit-card{display:flex;flex-direction:column;align-items:flex-start;gap:8px;width:100%;text-align:left;font-family:inherit;color:var(--text);cursor:pointer;padding:26px 24px;}
+.kit-top{display:flex;align-items:center;justify-content:space-between;width:100%;}
+.kit-tag{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);}
+.kit-done{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);border:1px solid var(--line);border-radius:999px;padding:3px 10px;}
+.kit-title{font-size:19px;font-weight:800;letter-spacing:-.01em;line-height:1.3;margin-top:4px;}
+.kit-desc{font-family:var(--serif);font-size:16px;line-height:1.5;color:var(--text-2);}
+.kit-meta{font-size:12.5px;font-weight:600;color:var(--text-3);margin-top:4px;}
+.kit-open{display:inline-flex;align-items:center;gap:8px;margin-top:12px;font-size:14px;font-weight:700;color:var(--blue);}
+.kit-open::after{content:'→';display:inline-block;}
+.kit-card:focus-visible{outline:2px solid var(--blue);outline-offset:3px;}
+
+.modal{border:none;padding:0;margin:auto;background:transparent;color:var(--text);max-width:820px;width:calc(100% - 48px);max-height:calc(100dvh - 48px);overflow:visible;}
+.modal::backdrop{background:rgba(3,6,12,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
+.modal-box{display:flex;flex-direction:column;max-height:calc(100dvh - 48px);background:linear-gradient(180deg,#0e1628,#0a101d);border:1px solid var(--line-strong);border-radius:22px;box-shadow:0 40px 100px rgba(0,0,0,.6);overflow:hidden;}
+.modal-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 20px 16px 28px;border-bottom:1px solid var(--line);flex:none;}
+.modal-k{font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--text-3);}
+.modal-close{width:40px;height:40px;border-radius:50%;border:1px solid var(--line-strong);background:var(--glass);color:var(--text);font-size:15px;cursor:pointer;font-family:inherit;}
+.modal-close:focus-visible{outline:2px solid var(--blue);outline-offset:2px;}
+.modal-body{overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:32px 28px 36px;}
+.modal-body .sub{margin-top:40px;}
+.modal-body .task{margin-top:40px;}
+.modal-body .panel{backdrop-filter:none;-webkit-backdrop-filter:none;}
+body.modal-open{overflow:hidden;}
+@media (prefers-reduced-motion:no-preference){
+  .modal[open] .modal-box{animation:modalIn .4s var(--ease);}
+  .modal[open]::backdrop{animation:fadeIn .3s ease;}
+  @keyframes modalIn{from{opacity:0;transform:translateY(24px) scale(.98);}to{opacity:1;transform:none;}}
+  @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+}
+@media (hover:hover) and (prefers-reduced-motion:no-preference){
+  .kit-card{transition:transform .45s var(--ease),border-color .45s var(--ease);}
+  .kit-card:hover{transform:translateY(-4px);border-color:var(--blue);}
+  .kit-open::after{transition:transform .35s var(--ease);}
+  .kit-card:hover .kit-open::after{transform:translateX(4px);}
+  .modal-close{transition:border-color .3s var(--ease),background-color .3s var(--ease);}
+  .modal-close:hover{border-color:var(--blue);background:var(--glass-2);}
+}
+@media (max-width:760px){
+  .modal{width:100%;max-width:100%;max-height:100dvh;height:100dvh;margin:0;}
+  .modal-box{max-height:100dvh;height:100%;border-radius:0;border:none;}
+  .modal-bar{padding:12px 16px 12px 20px;padding-top:calc(12px + env(safe-area-inset-top,0px));}
+  .modal-body{padding:24px 20px calc(40px + env(safe-area-inset-bottom,0px));}
+  .modal-body .rows{padding:4px 18px;}
+}
 </style>
 </head>
 <body>
@@ -231,36 +299,160 @@ html{scroll-behavior:smooth;}
    <div class="head-main">
     <h1>5 días,<span class="accent">1 app</span></h1>
     <p class="lede">Crea tu primera app con IA, sin saber programar.</p>
-    <div class="head-cta"><button class="btn btn-primary btn-start" type="button" id="btn-empezar">Empezar el Día 1</button></div>
+    <div class="head-cta"><button class="btn btn-primary btn-start" type="button" id="btn-empezar">Ir al Día 2</button></div>
    </div>
    <div class="head-side panel">
     <ul class="facts">
-      <li class="fact"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M7.5 14h.01M12 14h.01M16.5 14h.01M7.5 17.5h.01M12 17.5h.01"/></svg><span><b>Comienza</b>22 de septiembre de 2026</span></li>
+      <li class="fact"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M7.5 14h.01M12 14h.01M16.5 14h.01M7.5 17.5h.01M12 17.5h.01"/></svg><span><b>Comenzó</b>22 de septiembre de 2026</span></li>
       <li class="fact"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18.5 14.4c1.8.8 3 2.8 3 5.6"/></svg><span><b>Exclusivo para la comunidad</b>MODO FUTURO ⚡</span></li>
       <li class="fact"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/><path d="M12 12l7-7M16 3.5V8h4.5"/></svg><span><b>Ideal para</b>creadores, marcas y negocios</span></li>
     </ul>
-    <div class="live"><b></b>Día 1 disponible</div>
+    <div class="live"><b></b>Día 2 disponible</div>
    </div>
   </header>
 
   <section class="stage panel reveal" aria-label="Recorrido del reto">
     <h2 class="label">El recorrido</h2>
     <ol class="track">
-      <li class="step now"><span class="tick"></span><div class="n">Día 1</div><div class="name">Plan y construcción</div></li>
-      <li class="step"><span class="tick"></span><div class="n">Día 2</div><div class="name">Base de datos</div></li>
+      <li class="step done"><span class="tick"></span><div class="n">Día 1</div><div class="name">Plan y construcción</div></li>
+      <li class="step now"><span class="tick"></span><div class="n">Día 2</div><div class="name">Base de datos</div></li>
       <li class="step"><span class="tick"></span><div class="n">Día 3</div><div class="name">Pruebas y ajustes</div></li>
       <li class="step"><span class="tick"></span><div class="n">Día 4</div><div class="name">Publicar en internet</div></li>
       <li class="step"><span class="tick"></span><div class="n">Día 5</div><div class="name">Lanzamiento</div></li>
     </ol>
   </section>
 
-  <!-- ═══════════ DÍA 1 ═══════════ -->
-  <section class="day" id="dia-1">
-    <div class="eyebrow">Día 1 · Disponible</div>
-    <h2 class="day-title" id="empezar">De tu idea a la primera versión de tu app</h2>
-    <p class="day-intro">Hoy conviertes tu idea en un plan claro y en la primera versión de tu app, lista para ver en pantalla. Dos herramientas gratis: LYTH para crear el plan y Google AI Studio para construirla.</p>
+
+
+
+  <!-- ═══════════ DÍA 2 ═══════════ -->
+  <section class="day" id="dia-2">
+    <div class="eyebrow">Día 2 · Disponible</div>
+    <h2 class="day-title" id="empezar-2">Dale memoria a tu app con una base de datos</h2>
+    <p class="day-intro">Hoy conectas tu app a Supabase para que guarde la información de verdad, con seguridad para que cada usuario vea solo lo suyo. Todo gratis y sin escribir código.</p>
+    <!--VIDEO-DIA-2: agregar aquí los enlaces del video 2-->
 
     <div class="sub reveal">
+      <h3 class="sub-title">Así se hace, paso a paso</h3>
+      <ol class="rows panel">
+        <li class="row"><div class="tag">Paso 1</div><div><h3>Crea tu cuenta gratis en Supabase</h3><p>Entra a supabase.com y regístrate con tu correo o tu cuenta de GitHub. Supabase es el lugar donde tu app va a guardar su información.</p></div></li>
+        <li class="row"><div class="tag">Paso 2</div><div><h3>Crea un proyecto nuevo</h3><p>Ponle el nombre de tu app, escribe una contraseña segura y elige la región más cercana a tus usuarios. Guarda esa contraseña en un lugar seguro: Supabase no te la vuelve a mostrar.</p></div></li>
+        <li class="row"><div class="tag">Paso 3</div><div><h3>Copia la dirección y la llave pública</h3><p>En la página principal del proyecto copia la dirección que termina en supabase.co. En la sección API Keys, copia la llave pública, la que empieza con sb_publishable_.</p></div></li>
+        <li class="row"><div class="tag">Paso 4</div><div><h3>Pégalas en Google AI Studio</h3><p>Cuando AI Studio te pida los datos de Supabase, pega la dirección en el primer espacio y la llave en el segundo. Presiona Apply.</p></div></li>
+        <li class="row"><div class="tag">Paso 5</div><div><h3>Pide el script de tus tablas</h3><p>Copia el mensaje de la siguiente sección y envíalo en el chat de AI Studio. Te devolverá un bloque de texto con las instrucciones para crear tus tablas.</p></div></li>
+        <li class="row"><div class="tag">Paso 6</div><div><h3>Ejecútalo en Supabase</h3><p>En tu proyecto abre SQL Editor, pega el bloque completo y presiona Run. Si todo salió bien verás el mensaje "Success. No rows returned".</p></div></li>
+        <li class="row"><div class="tag">Paso 7</div><div><h3>Revisa tus tablas</h3><p>Abre Table Editor y verás las tablas de tu app, listas y vacías. Ya tienen dónde guardar la información.</p></div></li>
+      </ol>
+    </div>
+
+    <div class="sub reveal">
+      <h3 class="sub-title">El mensaje para AI Studio</h3>
+      <p class="sub-note">Cópialo tal cual. Funciona para cualquier app, porque AI Studio revisa el código de la tuya y arma las tablas a la medida.</p>
+      <div class="prompt panel">
+        <pre id="prompt-dia-2">Necesito el script SQL completo para Supabase que coincida exactamente con los nombres de tablas y columnas que usa el código de mi app. Debe incluir:
+
+1. Todas las tablas que mi app necesita para guardar su información.
+2. Seguridad RLS activada en todas las tablas: cada usuario solo puede ver, crear, editar y borrar lo suyo.
+3. Ninguna tabla con lectura pública abierta. Si mi app necesita mostrar algo al público (por ejemplo, un enlace para compartir), crea una función segura que devuelva solo ese dato.
+4. Si mi app sube archivos o imágenes, crea el espacio en Storage con reglas para que cada usuario solo pueda subir o cambiar archivos dentro de su propia carpeta.
+
+Si el código necesita ajustes para funcionar con esto, hazlos. Muéstrame el script completo en un solo bloque para pegarlo en el SQL Editor de Supabase.</pre>
+        <button class="btn btn-primary btn-copy" type="button" data-copy="prompt-dia-2">Copiar mensaje</button>
+      </div>
+    </div>
+
+    <div class="sub reveal">
+      <h3 class="sub-title">Cuidados importantes</h3>
+      <ul class="rows panel">
+        <li class="row"><div class="tag">Llave</div><div><h3>Usa solo la llave pública</h3><p>La que empieza con sb_publishable_ está hecha para ir dentro de tu app. Nunca pegues la que empieza con sb_secret_: esa es privada y da control total de tu base de datos.</p></div></li>
+        <li class="row"><div class="tag">Seguridad</div><div><h3>Revisa que ninguna tabla quede abierta</h3><p>Si en Table Editor alguna tabla aparece marcada como "Unrestricted", le falta la seguridad. Pídele a AI Studio que active RLS en esa tabla y vuelve a ejecutar el script.</p></div></li>
+        <li class="row"><div class="tag">Límite</div><div><h3>Máximo 2 proyectos gratis activos</h3><p>Si Supabase no te deja crear el proyecto, pausa uno que no estés usando. Pausar no borra nada: puedes reactivarlo después desde el mismo panel.</p></div></li>
+        <li class="row"><div class="tag">Errores</div><div><h3>Si el script falla, no adivines</h3><p>Copia el mensaje en rojo que te muestra Supabase y pégaselo a AI Studio. Pídele que corrija el script y vuelve a ejecutarlo.</p></div></li>
+      </ul>
+    </div>
+
+    <div class="sub reveal">
+      <h3 class="sub-title">Las herramientas de hoy</h3>
+      <div class="tools">
+        <div class="tool panel">
+          <div class="k">Base de datos</div>
+          <h3>Supabase</h3>
+          <p>Donde tu app guarda su información, con seguridad incluida. Gratis.</p>
+          <a class="btn btn-primary" href="https://supabase.com" target="_blank" rel="noopener">Abrir Supabase</a>
+        </div>
+        <div class="tool panel">
+          <div class="k">Construcción</div>
+          <h3>Google AI Studio</h3>
+          <p>Donde conectas tu app y pides el script de tus tablas.</p>
+          <a class="btn btn-ghost" href="https://aistudio.google.com" target="_blank" rel="noopener">Abrir AI Studio</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="task panel reveal">
+      <div class="eyebrow">Tu tarea de hoy</div>
+      <h3>Conecta tu app a Supabase</h3>
+      <p>Crea tu proyecto, conecta tu app y ejecuta el script. Cuando veas tus tablas en Table Editor, compártelo en la comunidad: es tu app guardando información de verdad.</p>
+      <div class="task-actions">
+        <a class="btn btn-primary" href="https://supabase.com" target="_blank" rel="noopener">Ir a Supabase</a>
+        <a class="btn btn-ghost" href="https://chat.whatsapp.com/ErqyyFCILQFCrt0GjFIvIf?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener">Compartir en El Club</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════ KITS ANTERIORES ═══════════ -->
+  <section class="past reveal" aria-label="Kits anteriores">
+    <div class="eyebrow">Kits anteriores</div>
+    <div class="past-grid">
+      <button class="kit-card panel" type="button" data-open="modal-dia-1">
+        <span class="kit-top"><span class="kit-tag">Día 1</span><span class="kit-done">Completado</span></span>
+        <span class="kit-title">De tu idea a la primera versión de tu app</span>
+        <span class="kit-desc">Crea el plan con LYTH y construye tu app en Google AI Studio.</span>
+        <span class="kit-meta">5 pasos · 8 consejos · Video</span>
+        <span class="kit-open">Ver kit completo</span>
+      </button>
+    </div>
+  </section>
+
+
+
+  <section class="close panel reveal">
+    <div class="eyebrow">MODO FUTURO: El Club</div>
+    <h2>Cada kit llega primero a la comunidad</h2>
+    <p>Aprende IA de forma simple, junto a personas que ya están construyendo. Si quieres una app hecha a la medida de tu negocio, también podemos conversarlo.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://chat.whatsapp.com/ErqyyFCILQFCrt0GjFIvIf?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener">Únete hoy al reto</a>
+      <a class="btn btn-ghost" href="https://wa.me/584142276197" target="_blank" rel="noopener">Hablar con Jonatan</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="mark">MODO FUTURO <span class="bolt">⚡</span></div>
+    <div class="tagline-top">Aprende IA sin complicaciones</div>
+    <div class="legal">Jonatan Correa · Consultor y divulgador IA · Todos los derechos reservados.</div>
+  </footer>
+
+</div>
+
+
+<dialog class="modal" id="modal-dia-1" aria-labelledby="modal-d1-title">
+  <div class="modal-box">
+    <div class="modal-bar">
+      <span class="modal-k">Kit del Día 1</span>
+      <button class="modal-close" type="button" data-close aria-label="Cerrar" autofocus>✕</button>
+    </div>
+    <div class="modal-body">
+    <div class="eyebrow">Día 1 · Plan y construcción</div>
+    <h2 class="day-title" id="modal-d1-title">De tu idea a la primera versión de tu app</h2>
+    <p class="day-intro">Hoy conviertes tu idea en un plan claro y en la primera versión de tu app, lista para ver en pantalla. Dos herramientas gratis: LYTH para crear el plan y Google AI Studio para construirla.</p>
+    <div class="watch">
+      <span class="watch-k">Mira el video</span>
+      <a class="chip" href="https://vt.tiktok.com/ZSbRUJx1h/" target="_blank" rel="noopener">TikTok</a>
+      <a class="chip" href="https://www.instagram.com/reel/DdocpIxRsSi/?stkn=MW52Z3J0YXpuNXFzMA==" target="_blank" rel="noopener">Instagram</a>
+    </div>
+
+    <div class="sub">
       <h3 class="sub-title">Así se hace, paso a paso</h3>
       <ol class="rows panel">
         <li class="row"><div class="tag">Paso 1</div><div><h3>Abre LYTH y elige Vibe Spark</h3><p>Es el modo que convierte una idea suelta en un plan completo. No necesitas escribir ningún mensaje para la IA: LYTH te hace preguntas.</p></div></li>
@@ -271,7 +463,7 @@ html{scroll-behavior:smooth;}
       </ol>
     </div>
 
-    <div class="sub reveal">
+    <div class="sub">
       <h3 class="sub-title">Cómo responder las preguntas de LYTH</h3>
       <p class="sub-note">La IA construye exactamente lo que entiende. Mientras más claras tus respuestas, mejor el plan y mejor tu app.</p>
       <ul class="rows panel">
@@ -314,7 +506,7 @@ html{scroll-behavior:smooth;}
       </ul>
     </div>
 
-    <div class="sub reveal">
+    <div class="sub">
       <h3 class="sub-title">Las herramientas de hoy</h3>
       <div class="tools">
         <div class="tool panel">
@@ -332,8 +524,8 @@ html{scroll-behavior:smooth;}
       </div>
     </div>
 
-    <div class="task panel reveal">
-      <div class="eyebrow">Tu tarea de hoy</div>
+    <div class="task panel">
+      <div class="eyebrow">Tu tarea del Día 1</div>
       <h3>Crea tu cuenta gratis en LYTH y cuéntale tu idea</h3>
       <p>En minutos te ayuda a construir el plan experto de tu app. Cuando lo tengas, compártelo en la comunidad y avanzamos juntos.</p>
       <div class="task-actions">
@@ -341,40 +533,37 @@ html{scroll-behavior:smooth;}
         <a class="btn btn-ghost" href="https://chat.whatsapp.com/ErqyyFCILQFCrt0GjFIvIf?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener">Compartir en El Club</a>
       </div>
     </div>
-  </section>
-
-  <!-- ═══════════ DÍAS BLOQUEADOS ═══════════ -->
-  <section class="locked reveal" aria-label="Próximos días">
-    <div class="eyebrow">Próximos kits</div>
-    <ul class="rows panel">
-      <li class="row"><div class="tag">Día 2</div><div><h3>Base de datos</h3><p>Dónde se guarda la información de tu app, con seguridad para que cada usuario vea solo lo suyo.</p><div class="state"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Se desbloquea con el video del Día 2</div></div></li>
-      <li class="row"><div class="tag">Día 3</div><div><h3>Pruebas y ajustes</h3><p>Pruebas reales, detalles que se pulen y cómo proteger la IA de tu app.</p><div class="state"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Se desbloquea con el video del Día 3</div></div></li>
-      <li class="row"><div class="tag">Día 4</div><div><h3>Publicar en internet</h3><p>Guardar tu app en un lugar seguro y publicarla con su propia dirección web.</p><div class="state"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Se desbloquea con el video del Día 4</div></div></li>
-      <li class="row"><div class="tag">Día 5</div><div><h3>Lanzamiento</h3><p>La app terminada, lista para compartir, y los siguientes pasos.</p><div class="state"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Se desbloquea con el video del Día 5</div></div></li>
-    </ul>
-  </section>
-
-  <section class="close panel reveal">
-    <div class="eyebrow">MODO FUTURO: El Club</div>
-    <h2>Cada kit llega primero a la comunidad</h2>
-    <p>Aprende IA de forma simple, junto a personas que ya están construyendo. Si quieres una app hecha a la medida de tu negocio, también podemos conversarlo.</p>
-    <div class="actions">
-      <a class="btn btn-primary" href="https://chat.whatsapp.com/ErqyyFCILQFCrt0GjFIvIf?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener">Únete hoy al reto</a>
-      <a class="btn btn-ghost" href="https://wa.me/584142276197" target="_blank" rel="noopener">Hablar con Jonatan</a>
+  
     </div>
-  </section>
-
-  <footer>
-    <div class="mark">MODO FUTURO <span class="bolt">⚡</span></div>
-    <div class="tagline-top">Aprende IA sin complicaciones</div>
-    <div class="legal">Jonatan Correa · Consultor y divulgador IA · Todos los derechos reservados.</div>
-  </footer>
-
-</div>
+  </div>
+</dialog>
 
 <script>
+
+document.querySelectorAll('.btn-copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    var t=document.getElementById(b.dataset.copy).innerText, orig=b.textContent;
+    function listo(){b.textContent='¡Copiado!';b.classList.add('ok');setTimeout(function(){b.textContent=orig;b.classList.remove('ok');},2000);}
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(listo).catch(respaldo);}else{respaldo();}
+    function respaldo(){var a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');listo();}catch(e){}document.body.removeChild(a);}
+  });
+});
+
+(function(){
+  var ultimo=null;
+  function abrir(id,btn){var d=document.getElementById(id);if(!d)return;ultimo=btn;
+    if(typeof d.showModal==='function'){d.showModal();}else{d.setAttribute('open','');}
+    document.body.classList.add('modal-open');d.querySelector('.modal-body').scrollTop=0;}
+  function cerrar(d){if(typeof d.close==='function'){d.close();}else{d.removeAttribute('open');}}
+  document.querySelectorAll('[data-open]').forEach(function(b){b.addEventListener('click',function(){abrir(b.dataset.open,b);});});
+  document.querySelectorAll('dialog.modal').forEach(function(d){
+    d.addEventListener('close',function(){document.body.classList.remove('modal-open');if(ultimo)ultimo.focus();});
+    d.addEventListener('click',function(e){if(e.target===d)cerrar(d);});
+    d.querySelectorAll('[data-close]').forEach(function(c){c.addEventListener('click',function(){cerrar(d);});});
+  });
+})();
 document.getElementById('btn-empezar').addEventListener('click',function(){
-  var destino=document.getElementById('empezar');
+  var destino=document.getElementById('empezar-2');
   var suave=!window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   destino.scrollIntoView({behavior:suave?'smooth':'auto',block:'start'});
 });
