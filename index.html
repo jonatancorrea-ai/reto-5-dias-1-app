@@ -28,7 +28,7 @@
 <meta name="twitter:image" content="https://jonatancorrea-ai.github.io/reto-5-dias-1-app/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Poppins:wght@500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#070b14; --bg-2:#0c1322;
@@ -37,7 +37,7 @@
   --text:#f4f4f2; --text-2:#b4bdd0; --text-3:#7a86a3;
   --blue:#a9cbf2; --blue-2:#6f9fe0; --blue-3:#3f6fbf;
   --slate:#2e3a55;
-  --sans:'Manrope',system-ui,sans-serif; --serif:'Source Serif 4',Georgia,serif;
+  --sans:'Manrope',system-ui,sans-serif; --display:'Poppins','Manrope',system-ui,sans-serif; --serif:'Source Serif 4',Georgia,serif;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 html{-webkit-font-smoothing:antialiased;background:var(--bg);}
@@ -235,7 +235,7 @@ html{scroll-behavior:smooth;}
   .chip{transition:border-color .35s var(--ease),background-color .35s var(--ease),transform .35s var(--ease);}
   .chip:hover{border-color:var(--blue);background:var(--glass-2);transform:translateY(-2px);}
 }
-#empezar-2{scroll-margin-top:52px;}
+#empezar-2,#empezar-3{scroll-margin-top:52px;}
 @media (max-width:760px){.prompt{padding:22px 20px;}.chip{flex:1;justify-content:center;}.watch-k{width:100%;}}
 
 /* ═══ Kits anteriores y ventana emergente ═══ */
@@ -285,6 +285,34 @@ body.modal-open{overflow:hidden;}
   .modal-body{padding:24px 20px calc(40px + env(safe-area-inset-bottom,0px));}
   .modal-body .rows{padding:4px 18px;}
 }
+
+/* ═══ Tipografía de títulos y tarjetas para copiar ═══ */
+h1,h2,h3,.kit-title,.copy-title{font-family:var(--display);}
+h1{font-weight:800;letter-spacing:-.025em;}
+.day-title,.close h2{font-weight:700;letter-spacing:-.025em;}
+.sub-title,.task h3,.tool h3{font-weight:700;letter-spacing:-.015em;}
+.row h3{font-weight:600;letter-spacing:-.005em;}
+.kit-title{font-weight:700;}
+.copy-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-top:16px;}
+.copy-card{display:flex;flex-direction:column;align-items:flex-start;gap:6px;width:100%;text-align:left;font-family:inherit;color:var(--text);cursor:pointer;padding:20px 22px;}
+.copy-k{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);}
+.copy-title{font-size:16.5px;font-weight:600;line-height:1.35;}
+.copy-desc{font-size:13.5px;line-height:1.55;color:var(--text-2);}
+.copy-open{display:inline-flex;align-items:center;gap:8px;margin-top:8px;font-size:13.5px;font-weight:700;color:var(--blue);}
+.copy-open::after{content:'→';display:inline-block;}
+.copy-card:focus-visible{outline:2px solid var(--blue);outline-offset:3px;}
+.modal-body .prompt pre{overflow-wrap:anywhere;}
+.modal-body .sub-note + .prompt{margin-top:20px;}
+@media (hover:hover) and (prefers-reduced-motion:no-preference){
+  .copy-card{transition:transform .45s var(--ease),border-color .45s var(--ease);}
+  .copy-card:hover{transform:translateY(-3px);border-color:var(--blue);}
+  .copy-open::after{transition:transform .35s var(--ease);}
+  .copy-card:hover .copy-open::after{transform:translateX(4px);}
+}
+@media (max-width:760px){
+  .copy-grid{grid-template-columns:1fr;}
+  .copy-card{padding:18px 20px;}
+}
 </style>
 </head>
 <body>
@@ -299,7 +327,7 @@ body.modal-open{overflow:hidden;}
    <div class="head-main">
     <h1>5 días,<span class="accent">1 app</span></h1>
     <p class="lede">Crea tu primera app con IA, sin saber programar.</p>
-    <div class="head-cta"><button class="btn btn-primary btn-start" type="button" id="btn-empezar">Ir al Día 2</button></div>
+    <div class="head-cta"><button class="btn btn-primary btn-start" type="button" id="btn-empezar">Ir al Día 3</button></div>
    </div>
    <div class="head-side panel">
     <ul class="facts">
@@ -307,7 +335,7 @@ body.modal-open{overflow:hidden;}
       <li class="fact"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18.5 14.4c1.8.8 3 2.8 3 5.6"/></svg><span><b>Exclusivo para la comunidad</b>MODO FUTURO ⚡</span></li>
       <li class="fact"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/><path d="M12 12l7-7M16 3.5V8h4.5"/></svg><span><b>Ideal para</b>creadores, marcas y negocios</span></li>
     </ul>
-    <div class="live"><b></b>Día 2 disponible</div>
+    <div class="live"><b></b>Día 3 disponible</div>
    </div>
   </header>
 
@@ -315,8 +343,8 @@ body.modal-open{overflow:hidden;}
     <h2 class="label">El recorrido</h2>
     <ol class="track">
       <li class="step done"><span class="tick"></span><div class="n">Día 1</div><div class="name">Plan y construcción</div></li>
-      <li class="step now"><span class="tick"></span><div class="n">Día 2</div><div class="name">Base de datos</div></li>
-      <li class="step"><span class="tick"></span><div class="n">Día 3</div><div class="name">Pruebas y ajustes</div></li>
+      <li class="step done"><span class="tick"></span><div class="n">Día 2</div><div class="name">Base de datos</div></li>
+      <li class="step now"><span class="tick"></span><div class="n">Día 3</div><div class="name">Pruebas y ajustes</div></li>
       <li class="step"><span class="tick"></span><div class="n">Día 4</div><div class="name">Publicar en internet</div></li>
       <li class="step"><span class="tick"></span><div class="n">Día 5</div><div class="name">Lanzamiento</div></li>
     </ol>
@@ -325,49 +353,91 @@ body.modal-open{overflow:hidden;}
 
 
 
-  <!-- ═══════════ DÍA 2 ═══════════ -->
-  <section class="day" id="dia-2">
-    <div class="eyebrow">Día 2 · Disponible</div>
-    <h2 class="day-title" id="empezar-2">Dale memoria a tu app con una base de datos</h2>
-    <p class="day-intro">Hoy conectas tu app a Supabase para que guarde la información de verdad, con seguridad para que cada usuario vea solo lo suyo. Todo gratis y sin escribir código.</p>
-    <!--VIDEO-DIA-2: agregar aquí los enlaces del video 2-->
+  <!-- ═══════════ DÍA 3 ═══════════ -->
+  <section class="day" id="dia-3">
+    <div class="eyebrow">Día 3 · Disponible</div>
+    <h2 class="day-title" id="empezar-3">Pon a prueba tu app y protégela</h2>
+    <p class="day-intro">Hoy usas tu app como lo haría una persona real, corriges lo que falle y la proteges antes de publicarla mañana. Todo gratis y sin escribir código.</p>
+    <!--VIDEO-DIA-3: agregar aquí los enlaces del video 3-->
 
     <div class="sub reveal">
-      <h3 class="sub-title">Así se hace, paso a paso</h3>
+      <h3 class="sub-title">Prueba tu app como un usuario real</h3>
+      <p class="sub-note">Hazlo en la vista previa de Google AI Studio. Si algo falla, cuéntale a AI Studio exactamente qué pasó, un problema por mensaje.</p>
       <ol class="rows panel">
-        <li class="row"><div class="tag">Paso 1</div><div><h3>Crea tu cuenta gratis en Supabase</h3><p>Entra a supabase.com y regístrate con tu correo o tu cuenta de GitHub. Supabase es el lugar donde tu app va a guardar su información.</p></div></li>
-        <li class="row"><div class="tag">Paso 2</div><div><h3>Crea un proyecto nuevo</h3><p>Ponle el nombre de tu app, escribe una contraseña segura y elige la región más cercana a tus usuarios. Guarda esa contraseña en un lugar seguro: Supabase no te la vuelve a mostrar.</p></div></li>
-        <li class="row"><div class="tag">Paso 3</div><div><h3>Copia la dirección y la llave pública</h3><p>En la página principal del proyecto copia la dirección que termina en supabase.co. En la sección API Keys, copia la llave pública, la que empieza con sb_publishable_.</p></div></li>
-        <li class="row"><div class="tag">Paso 4</div><div><h3>Pégalas en Google AI Studio</h3><p>Cuando AI Studio te pida los datos de Supabase, pega la dirección en el primer espacio y la llave en el segundo. Presiona Apply.</p></div></li>
-        <li class="row"><div class="tag">Paso 5</div><div><h3>Pide el script de tus tablas</h3><p>Copia el mensaje de la siguiente sección y envíalo en el chat de AI Studio. Te devolverá un bloque de texto con las instrucciones para crear tus tablas.</p></div></li>
-        <li class="row"><div class="tag">Paso 6</div><div><h3>Ejecútalo en Supabase</h3><p>En tu proyecto abre SQL Editor, pega el bloque completo y presiona Run. Si todo salió bien verás el mensaje "Success. No rows returned".</p></div></li>
-        <li class="row"><div class="tag">Paso 7</div><div><h3>Revisa tus tablas</h3><p>Abre Table Editor y verás las tablas de tu app, listas y vacías. Ya tienen dónde guardar la información.</p></div></li>
+        <li class="row"><div class="tag">Prueba 1</div><div><h3>Crea una cuenta</h3><p>Regístrate con un correo real. Si tu app pide confirmar el correo, revisa que el mensaje te llegue (mira también en spam).</p></div></li>
+        <li class="row"><div class="tag">Prueba 2</div><div><h3>Cierra sesión y vuelve a entrar</h3><p>Tu cuenta y tu información deben seguir ahí, sin pedirte configurar todo de nuevo.</p></div></li>
+        <li class="row"><div class="tag">Prueba 3</div><div><h3>Revisa que se guarde de verdad</h3><p>Crea algo en tu app y luego abre Supabase, en Table Editor. Debe aparecer en su tabla. Si no aparece, tu app todavía no está guardando en la base de datos.</p></div></li>
+        <li class="row"><div class="tag">Prueba 4</div><div><h3>Ábrela en dos dispositivos</h3><p>Entra con la misma cuenta desde tu celular y tu computadora. Debes ver lo mismo en ambos. Si ves cosas distintas, tu app guarda en el navegador y no en Supabase.</p></div></li>
+        <li class="row"><div class="tag">Prueba 5</div><div><h3>Comprueba la privacidad</h3><p>Crea una segunda cuenta con otro correo. No debe ver nada de la primera: cada persona solo ve lo suyo.</p></div></li>
       </ol>
     </div>
 
     <div class="sub reveal">
-      <h3 class="sub-title">El mensaje para AI Studio</h3>
-      <p class="sub-note">Cópialo tal cual. Funciona para cualquier app, porque AI Studio revisa el código de la tuya y arma las tablas a la medida.</p>
-      <div class="prompt panel">
-        <pre id="prompt-dia-2">Necesito el script SQL completo para Supabase que coincida exactamente con los nombres de tablas y columnas que usa el código de mi app. Debe incluir:
+      <h3 class="sub-title">Correos de confirmación profesionales</h3>
+      <p class="sub-note">Solo si tu app tiene registro de usuarios. El correo gratis de Supabase solo llega a tu propio equipo, así que nadie más podría registrarse. Con Resend los correos salen desde tu dominio y solo entran personas con correos reales.</p>
+      <ol class="rows panel">
+        <li class="row"><div class="tag">Paso 1</div><div><h3>Crea tu cuenta gratis en Resend</h3><p>Entra a resend.com y regístrate. El plan gratis alcanza para unos 100 correos al día.</p></div></li>
+        <li class="row"><div class="tag">Paso 2</div><div><h3>Verifica tu dominio</h3><p>En la sección Domains agrega tu dominio. Resend te mostrará unos datos que debes copiar en el lugar donde compraste tu dominio. Espera a que aparezca en verde como Verified.</p></div></li>
+        <li class="row"><div class="tag">Paso 3</div><div><h3>Crea una llave de envío</h3><p>En API Keys presiona Create API Key, elige el permiso Sending access y tu dominio. Guarda la llave en un lugar privado: solo se muestra una vez.</p></div></li>
+        <li class="row"><div class="tag">Paso 4</div><div><h3>Conéctala en Supabase</h3><p>En tu proyecto abre Authentication, luego Emails y la pestaña SMTP Settings. Activa Enable custom SMTP y llena: Host smtp.resend.com, Port 465, Username resend, Password tu llave, Sender email un correo con tu dominio y Sender name el nombre de tu app. Presiona Save.</p></div></li>
+        <li class="row"><div class="tag">Paso 5</div><div><h3>Activa la confirmación</h3><p>En Authentication, abre Sign In / Providers y luego Email. Revisa que Confirm email esté activado.</p></div></li>
+        <li class="row"><div class="tag">Paso 6</div><div><h3>Pon tu correo en español</h3><p>En Authentication, Emails, pestaña Templates, abre Confirm signup. Cambia el asunto y pega la plantilla que encuentras justo abajo.</p></div></li>
+      </ol>
+      <div class="copy-grid">
+        <button class="copy-card panel" type="button" data-open="modal-plantilla">
+          <span class="copy-k">Plantilla de correo</span>
+          <span class="copy-title">Correo de confirmación en español</span>
+          <span class="copy-desc">Diseño limpio con tu nombre y tu color, listo para pegar en Supabase.</span>
+          <span class="copy-open">Ver y copiar</span>
+        </button>
+      </div>
+      <p class="sub-note">¿No tienes dominio propio? Puedes desactivar Confirm email para que tu comunidad pueda registrarse, aunque así se aceptan correos falsos.</p>
+    </div>
 
-1. Todas las tablas que mi app necesita para guardar su información.
-2. Seguridad RLS activada en todas las tablas: cada usuario solo puede ver, crear, editar y borrar lo suyo.
-3. Ninguna tabla con lectura pública abierta. Si mi app necesita mostrar algo al público (por ejemplo, un enlace para compartir), crea una función segura que devuelva solo ese dato.
-4. Si mi app sube archivos o imágenes, crea el espacio en Storage con reglas para que cada usuario solo pueda subir o cambiar archivos dentro de su propia carpeta.
+    <div class="sub reveal">
+      <h3 class="sub-title">El mensaje de seguridad para AI Studio</h3>
+      <p class="sub-note">Revisa tu app completa y la deja lista para recibir personas reales.</p>
+      <div class="copy-grid">
+        <button class="copy-card panel" type="button" data-open="modal-seguridad">
+          <span class="copy-k">Mensaje para AI Studio</span>
+          <span class="copy-title">Seguridad de nivel profesional</span>
+          <span class="copy-desc">Guardado, llaves, protección de la IA, archivos y errores en un solo mensaje.</span>
+          <span class="copy-open">Ver y copiar</span>
+        </button>
+      </div>
+    </div>
 
-Si el código necesita ajustes para funcionar con esto, hazlos. Muéstrame el script completo en un solo bloque para pegarlo en el SQL Editor de Supabase.</pre>
-        <button class="btn btn-primary btn-copy" type="button" data-copy="prompt-dia-2">Copiar mensaje</button>
+    <div class="sub reveal">
+      <h3 class="sub-title">Límites de IA a prueba de trampas</h3>
+      <p class="sub-note">Solo si tu app usa IA. El uso gratis de la IA se comparte entre todos tus usuarios. Este registro cuenta cada intento y nadie lo puede borrar, así una sola persona no puede gastar el cupo de todos.</p>
+      <ol class="rows panel">
+        <li class="row"><div class="tag">Paso 1</div><div><h3>Crea el registro en Supabase</h3><p>En tu proyecto abre SQL Editor, presiona New query, pega el bloque del Paso 1 y presiona Run. Debe aparecer "Success. No rows returned".</p></div></li>
+        <li class="row"><div class="tag">Paso 2</div><div><h3>Conéctalo en AI Studio</h3><p>Copia el mensaje del Paso 2, cambia los números de límite si quieres otros y envíalo en el chat de tu app.</p></div></li>
+        <li class="row"><div class="tag">Paso 3</div><div><h3>Pruébalo</h3><p>Usa la IA dos veces seguidas: la segunda debe pedirte esperar. Luego borra algo que hayas creado: tus usos disponibles no deben subir.</p></div></li>
+      </ol>
+      <div class="copy-grid">
+        <button class="copy-card panel" type="button" data-open="modal-sql-uso">
+          <span class="copy-k">Paso 1 · Supabase</span>
+          <span class="copy-title">Bloque para crear el registro</span>
+          <span class="copy-desc">Crea la tabla de uso que nadie puede editar ni borrar.</span>
+          <span class="copy-open">Ver y copiar</span>
+        </button>
+        <button class="copy-card panel" type="button" data-open="modal-prompt-uso">
+          <span class="copy-k">Paso 2 · AI Studio</span>
+          <span class="copy-title">Mensaje para conectar el registro</span>
+          <span class="copy-desc">Aplica los límites diarios y la espera entre intentos.</span>
+          <span class="copy-open">Ver y copiar</span>
+        </button>
       </div>
     </div>
 
     <div class="sub reveal">
       <h3 class="sub-title">Cuidados importantes</h3>
       <ul class="rows panel">
-        <li class="row"><div class="tag">Llave</div><div><h3>Usa solo la llave pública</h3><p>La que empieza con sb_publishable_ está hecha para ir dentro de tu app. Nunca pegues la que empieza con sb_secret_: esa es privada y da control total de tu base de datos.</p></div></li>
-        <li class="row"><div class="tag">Seguridad</div><div><h3>Revisa que ninguna tabla quede abierta</h3><p>Si en Table Editor alguna tabla aparece marcada como "Unrestricted", le falta la seguridad. Pídele a AI Studio que active RLS en esa tabla y vuelve a ejecutar el script.</p></div></li>
-        <li class="row"><div class="tag">Límite</div><div><h3>Máximo 2 proyectos gratis activos</h3><p>Si Supabase no te deja crear el proyecto, pausa uno que no estés usando. Pausar no borra nada: puedes reactivarlo después desde el mismo panel.</p></div></li>
-        <li class="row"><div class="tag">Errores</div><div><h3>Si el script falla, no adivines</h3><p>Copia el mensaje en rojo que te muestra Supabase y pégaselo a AI Studio. Pídele que corrija el script y vuelve a ejecutarlo.</p></div></li>
+        <li class="row"><div class="tag">Llaves</div><div><h3>Nunca compartas tus llaves</h3><p>La llave de Resend va solo en Supabase. No la pegues en el chat de AI Studio, en capturas ni en ningún archivo público.</p></div></li>
+        <li class="row"><div class="tag">Scripts</div><div><h3>No ejecutes scripts repetidos</h3><p>Si AI Studio te sugiere un script para crear tablas que ya tienes, no lo ejecutes: puede duplicar reglas o reemplazar las que ya funcionan. Pregúntale primero qué cambia.</p></div></li>
+        <li class="row"><div class="tag">Confirmación</div><div><h3>La página de error es normal por ahora</h3><p>Al confirmar tu correo puede abrirse una página con error, porque tu app todavía no tiene su dirección en internet. Tu correo igual queda confirmado. Eso se resuelve mañana.</p></div></li>
+        <li class="row"><div class="tag">Errores</div><div><h3>Un problema por mensaje</h3><p>Describe qué hiciste, qué esperabas y qué pasó. Si algo se daña, vuelve a la versión anterior con el botón Restore.</p></div></li>
       </ul>
     </div>
 
@@ -375,15 +445,15 @@ Si el código necesita ajustes para funcionar con esto, hazlos. Muéstrame el sc
       <h3 class="sub-title">Las herramientas de hoy</h3>
       <div class="tools">
         <div class="tool panel">
-          <div class="k">Base de datos</div>
-          <h3>Supabase</h3>
-          <p>Donde tu app guarda su información, con seguridad incluida. Gratis.</p>
-          <a class="btn btn-primary" href="https://supabase.com" target="_blank" rel="noopener">Abrir Supabase</a>
+          <div class="k">Correos</div>
+          <h3>Resend</h3>
+          <p>Envía los correos de confirmación desde tu propio dominio. Gratis.</p>
+          <a class="btn btn-primary" href="https://resend.com" target="_blank" rel="noopener">Abrir Resend</a>
         </div>
         <div class="tool panel">
           <div class="k">Construcción</div>
           <h3>Google AI Studio</h3>
-          <p>Donde conectas tu app y pides el script de tus tablas.</p>
+          <p>Donde pruebas tu app y le pides los ajustes de seguridad.</p>
           <a class="btn btn-ghost" href="https://aistudio.google.com" target="_blank" rel="noopener">Abrir AI Studio</a>
         </div>
       </div>
@@ -391,10 +461,10 @@ Si el código necesita ajustes para funcionar con esto, hazlos. Muéstrame el sc
 
     <div class="task panel reveal">
       <div class="eyebrow">Tu tarea de hoy</div>
-      <h3>Conecta tu app a Supabase</h3>
-      <p>Crea tu proyecto, conecta tu app y ejecuta el script. Cuando veas tus tablas en Table Editor, compártelo en la comunidad: es tu app guardando información de verdad.</p>
+      <h3>Prueba tu app y déjala protegida</h3>
+      <p>Haz las 5 pruebas y envía el mensaje de seguridad. Cuando todo funcione, compártelo en la comunidad: mañana tu app sale a internet.</p>
       <div class="task-actions">
-        <a class="btn btn-primary" href="https://supabase.com" target="_blank" rel="noopener">Ir a Supabase</a>
+        <a class="btn btn-primary" href="https://aistudio.google.com" target="_blank" rel="noopener">Ir a AI Studio</a>
         <a class="btn btn-ghost" href="https://chat.whatsapp.com/ErqyyFCILQFCrt0GjFIvIf?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener">Compartir en El Club</a>
       </div>
     </div>
@@ -410,6 +480,13 @@ Si el código necesita ajustes para funcionar con esto, hazlos. Muéstrame el sc
         <span class="kit-title">De tu idea a la primera versión de tu app</span>
         <span class="kit-desc">Crea el plan con LYTH y construye tu app en Google AI Studio.</span>
         <span class="kit-meta">5 pasos · 8 consejos · Video</span>
+        <span class="kit-open">Ver kit completo</span>
+      </button>
+      <button class="kit-card panel" type="button" data-open="modal-dia-2">
+        <span class="kit-top"><span class="kit-tag">Día 2</span><span class="kit-done">Completado</span></span>
+        <span class="kit-title">Dale memoria a tu app con una base de datos</span>
+        <span class="kit-desc">Conecta tu app a Supabase y crea tus tablas con seguridad incluida.</span>
+        <span class="kit-meta">7 pasos · 4 cuidados · Video</span>
         <span class="kit-open">Ver kit completo</span>
       </button>
     </div>
@@ -538,6 +615,231 @@ Si el código necesita ajustes para funcionar con esto, hazlos. Muéstrame el sc
   </div>
 </dialog>
 
+<dialog class="modal" id="modal-dia-2" aria-labelledby="modal-d2-title">
+  <div class="modal-box">
+    <div class="modal-bar">
+      <span class="modal-k">Kit del Día 2</span>
+      <button class="modal-close" type="button" data-close aria-label="Cerrar" autofocus>✕</button>
+    </div>
+    <div class="modal-body">
+    <div class="eyebrow">Día 2 · Base de datos</div>
+    <h2 class="day-title" id="modal-d2-title">Dale memoria a tu app con una base de datos</h2>
+    <p class="day-intro">Hoy conectas tu app a Supabase para que guarde la información de verdad, con seguridad para que cada usuario vea solo lo suyo. Todo gratis y sin escribir código.</p>
+    <div class="watch">
+      <span class="watch-k">Mira el video</span>
+      <a class="chip" href="https://vt.tiktok.com/ZSbjKLY36/" target="_blank" rel="noopener">TikTok</a>
+      <a class="chip" href="https://www.instagram.com/reel/Ddtj7K3R5AD/?stkn=MTVmOWRleno5NXRhbQ==" target="_blank" rel="noopener">Instagram</a>
+    </div>
+
+    <div class="sub">
+      <h3 class="sub-title">Así se hace, paso a paso</h3>
+      <ol class="rows panel">
+        <li class="row"><div class="tag">Paso 1</div><div><h3>Crea tu cuenta gratis en Supabase</h3><p>Entra a supabase.com y regístrate con tu correo o tu cuenta de GitHub. Supabase es el lugar donde tu app va a guardar su información.</p></div></li>
+        <li class="row"><div class="tag">Paso 2</div><div><h3>Crea un proyecto nuevo</h3><p>Ponle el nombre de tu app, escribe una contraseña segura y elige la región más cercana a tus usuarios. Guarda esa contraseña en un lugar seguro: Supabase no te la vuelve a mostrar.</p></div></li>
+        <li class="row"><div class="tag">Paso 3</div><div><h3>Copia la dirección y la llave pública</h3><p>En la página principal del proyecto copia la dirección que termina en supabase.co. En la sección API Keys, copia la llave pública, la que empieza con sb_publishable_.</p></div></li>
+        <li class="row"><div class="tag">Paso 4</div><div><h3>Pégalas en Google AI Studio</h3><p>Cuando AI Studio te pida los datos de Supabase, pega la dirección en el primer espacio y la llave en el segundo. Presiona Apply.</p></div></li>
+        <li class="row"><div class="tag">Paso 5</div><div><h3>Pide el script de tus tablas</h3><p>Copia el mensaje de la siguiente sección y envíalo en el chat de AI Studio. Te devolverá un bloque de texto con las instrucciones para crear tus tablas.</p></div></li>
+        <li class="row"><div class="tag">Paso 6</div><div><h3>Ejecútalo en Supabase</h3><p>En tu proyecto abre SQL Editor, pega el bloque completo y presiona Run. Si todo salió bien verás el mensaje "Success. No rows returned".</p></div></li>
+        <li class="row"><div class="tag">Paso 7</div><div><h3>Revisa tus tablas</h3><p>Abre Table Editor y verás las tablas de tu app, listas y vacías. Ya tienen dónde guardar la información.</p></div></li>
+      </ol>
+    </div>
+
+    <div class="sub">
+      <h3 class="sub-title">El mensaje para AI Studio</h3>
+      <p class="sub-note">Cópialo tal cual. Funciona para cualquier app, porque AI Studio revisa el código de la tuya y arma las tablas a la medida.</p>
+      <div class="prompt panel">
+        <pre id="prompt-dia-2">Necesito el script SQL completo para Supabase que coincida exactamente con los nombres de tablas y columnas que usa el código de mi app. Debe incluir:
+
+1. Todas las tablas que mi app necesita para guardar su información.
+2. Seguridad RLS activada en todas las tablas: cada usuario solo puede ver, crear, editar y borrar lo suyo.
+3. Ninguna tabla con lectura pública abierta. Si mi app necesita mostrar algo al público (por ejemplo, un enlace para compartir), crea una función segura que devuelva solo ese dato.
+4. Si mi app sube archivos o imágenes, crea el espacio en Storage con reglas para que cada usuario solo pueda subir o cambiar archivos dentro de su propia carpeta.
+
+Si el código necesita ajustes para funcionar con esto, hazlos. Muéstrame el script completo en un solo bloque para pegarlo en el SQL Editor de Supabase.</pre>
+        <button class="btn btn-primary btn-copy" type="button" data-copy="prompt-dia-2">Copiar mensaje</button>
+      </div>
+    </div>
+
+    <div class="sub">
+      <h3 class="sub-title">Cuidados importantes</h3>
+      <ul class="rows panel">
+        <li class="row"><div class="tag">Llave</div><div><h3>Usa solo la llave pública</h3><p>La que empieza con sb_publishable_ está hecha para ir dentro de tu app. Nunca pegues la que empieza con sb_secret_: esa es privada y da control total de tu base de datos.</p></div></li>
+        <li class="row"><div class="tag">Seguridad</div><div><h3>Revisa que ninguna tabla quede abierta</h3><p>Si en Table Editor alguna tabla aparece marcada como "Unrestricted", le falta la seguridad. Pídele a AI Studio que active RLS en esa tabla y vuelve a ejecutar el script.</p></div></li>
+        <li class="row"><div class="tag">Límite</div><div><h3>Máximo 2 proyectos gratis activos</h3><p>Si Supabase no te deja crear el proyecto, pausa uno que no estés usando. Pausar no borra nada: puedes reactivarlo después desde el mismo panel.</p></div></li>
+        <li class="row"><div class="tag">Errores</div><div><h3>Si el script falla, no adivines</h3><p>Copia el mensaje en rojo que te muestra Supabase y pégaselo a AI Studio. Pídele que corrija el script y vuelve a ejecutarlo.</p></div></li>
+      </ul>
+    </div>
+
+    <div class="sub">
+      <h3 class="sub-title">Las herramientas de hoy</h3>
+      <div class="tools">
+        <div class="tool panel">
+          <div class="k">Base de datos</div>
+          <h3>Supabase</h3>
+          <p>Donde tu app guarda su información, con seguridad incluida. Gratis.</p>
+          <a class="btn btn-primary" href="https://supabase.com" target="_blank" rel="noopener">Abrir Supabase</a>
+        </div>
+        <div class="tool panel">
+          <div class="k">Construcción</div>
+          <h3>Google AI Studio</h3>
+          <p>Donde conectas tu app y pides el script de tus tablas.</p>
+          <a class="btn btn-ghost" href="https://aistudio.google.com" target="_blank" rel="noopener">Abrir AI Studio</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="task panel">
+      <div class="eyebrow">Tu tarea del Día 2</div>
+      <h3>Conecta tu app a Supabase</h3>
+      <p>Crea tu proyecto, conecta tu app y ejecuta el script. Cuando veas tus tablas en Table Editor, compártelo en la comunidad: es tu app guardando información de verdad.</p>
+      <div class="task-actions">
+        <a class="btn btn-primary" href="https://supabase.com" target="_blank" rel="noopener">Ir a Supabase</a>
+        <a class="btn btn-ghost" href="https://chat.whatsapp.com/ErqyyFCILQFCrt0GjFIvIf?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener">Compartir en El Club</a>
+      </div>
+    </div>
+  
+    </div>
+  </div>
+</dialog>
+
+<dialog class="modal" id="modal-plantilla" aria-labelledby="modal-plantilla-title">
+  <div class="modal-box">
+    <div class="modal-bar">
+      <span class="modal-k">Día 3 · Plantilla</span>
+      <button class="modal-close" type="button" data-close aria-label="Cerrar" autofocus>✕</button>
+    </div>
+    <div class="modal-body">
+    <div class="eyebrow">Plantilla de correo</div>
+    <h2 class="day-title" id="modal-plantilla-title">Correo de confirmación en español</h2>
+    <p class="sub-note">Pégala en Supabase, en Authentication, Emails, pestaña Templates, dentro de Confirm signup. Cambia [Nombre de tu app] por el nombre de tu app y #2F5BD3 por el color de tu marca. No toques {{ .ConfirmationURL }}: es el enlace de confirmación.</p>
+    <div class="prompt panel">
+      <pre id="plantilla-correo">&lt;div style="font-family:Arial,sans-serif;background:#F5F5F2;padding:32px 16px;"&gt;
+  &lt;div style="max-width:480px;margin:0 auto;background:#FFFFFF;border-radius:12px;padding:32px;"&gt;
+    &lt;h1 style="font-family:Georgia,serif;color:#2F5BD3;font-size:26px;margin:0 0 16px;"&gt;Bienvenido a [Nombre de tu app]&lt;/h1&gt;
+    &lt;p style="color:#333;font-size:16px;line-height:1.5;margin:0 0 24px;"&gt;
+      Estás a un paso de empezar. Confirma tu correo para activar tu cuenta.
+    &lt;/p&gt;
+    &lt;a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#2F5BD3;color:#FFFFFF;text-decoration:none;padding:14px 24px;border-radius:8px;font-size:16px;"&gt;Confirmar mi correo&lt;/a&gt;
+    &lt;p style="color:#888;font-size:13px;line-height:1.5;margin:24px 0 0;"&gt;
+      Si no creaste una cuenta en [Nombre de tu app], puedes ignorar este mensaje.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+      <button class="btn btn-primary btn-copy" type="button" data-copy="plantilla-correo">Copiar plantilla</button>
+    </div>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="modal" id="modal-seguridad" aria-labelledby="modal-seguridad-title">
+  <div class="modal-box">
+    <div class="modal-bar">
+      <span class="modal-k">Día 3 · Mensaje</span>
+      <button class="modal-close" type="button" data-close aria-label="Cerrar" autofocus>✕</button>
+    </div>
+    <div class="modal-body">
+    <div class="eyebrow">Mensaje para AI Studio</div>
+    <h2 class="day-title" id="modal-seguridad-title">Seguridad de nivel profesional</h2>
+    <p class="sub-note">Cópialo tal cual y envíalo en el chat de tu app en AI Studio. Al final te explicará en lenguaje sencillo qué cambió.</p>
+    <div class="prompt panel">
+      <pre id="prompt-dia-3">Revisa mi app y aplícale seguridad de nivel profesional antes de publicarla, sin cambiar el diseño.
+
+GUARDADO
+1. Toda la información de los usuarios debe guardarse en Supabase, nunca en el almacenamiento del navegador (localStorage o sessionStorage). Si algo no se guarda, muestra un error visible en pantalla.
+2. Cada registro debe guardarse con el id del usuario que inició sesión.
+
+LLAVES Y ACCESO
+3. Usa solo la llave pública de Supabase. Nunca la llave secreta ni la service_role.
+4. Cualquier clave de un servicio de IA u otro servicio privado debe usarse solo en rutas del servidor, nunca en el código del navegador ni en variables públicas (como las que empiezan con NEXT_PUBLIC_ o VITE_).
+5. Las rutas del servidor deben identificar al usuario con su sesión de Supabase y rechazar cualquier solicitud sin sesión válida.
+
+IA (si mi app usa IA)
+6. Lo que escribe el usuario se trata solo como datos, nunca como instrucciones. Envíalo separado de las instrucciones del sistema e indica que ignore cualquier orden que venga dentro de ese texto.
+7. Limita la longitud de los textos que envía el usuario y valídala en el navegador y en el servidor.
+8. Pide a la IA respuestas con una estructura fija y valídala en el servidor. Si no cumple, muestra un error amable y no guardes nada.
+9. Bloquea el botón mientras hay una solicitud en curso para evitar dobles envíos.
+
+ARCHIVOS Y PANTALLA
+10. Si hay subida de archivos: solo los tipos necesarios, máximo 2 MB, guardados en la carpeta del usuario.
+11. Nunca muestres como HTML lo que escribe el usuario o la IA: todo como texto plano.
+12. Si hay enlaces públicos para compartir, deben usar un código aleatorio y seguro de al menos 16 caracteres.
+
+GENERAL
+13. Mensajes de error simples, sin detalles internos.
+14. Agrega encabezados de seguridad básicos.
+15. Si algo requiere cambios en la base de datos de Supabase, NO lo inventes ni me des scripts para tablas que ya existen: dime exactamente qué haría falta.
+
+Al terminar, explícame en lenguaje sencillo qué cambiaste, punto por punto.</pre>
+      <button class="btn btn-primary btn-copy" type="button" data-copy="prompt-dia-3">Copiar mensaje</button>
+    </div>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="modal" id="modal-sql-uso" aria-labelledby="modal-sql-uso-title">
+  <div class="modal-box">
+    <div class="modal-bar">
+      <span class="modal-k">Día 3 · Supabase</span>
+      <button class="modal-close" type="button" data-close aria-label="Cerrar" autofocus>✕</button>
+    </div>
+    <div class="modal-body">
+    <div class="eyebrow">Bloque para Supabase</div>
+    <h2 class="day-title" id="modal-sql-uso-title">Crea el registro de uso</h2>
+    <p class="sub-note">En tu proyecto abre SQL Editor, presiona New query, pega el bloque y presiona Run. Debe aparecer "Success. No rows returned".</p>
+    <div class="prompt panel">
+      <pre id="sql-uso-ia">create table public.uso_ia (
+  id bigint generated always as identity primary key,
+  owner_id uuid not null default auth.uid() references auth.users(id) on delete cascade,
+  exitoso boolean not null default false,
+  created_at timestamptz not null default now()
+);
+
+create index uso_ia_owner_fecha on public.uso_ia (owner_id, created_at);
+
+alter table public.uso_ia enable row level security;
+
+create policy "Ver mi propio uso"
+on public.uso_ia for select to authenticated
+using (auth.uid() = owner_id);
+
+create policy "Registrar mi propio uso"
+on public.uso_ia for insert to authenticated
+with check (auth.uid() = owner_id);</pre>
+      <button class="btn btn-primary btn-copy" type="button" data-copy="sql-uso-ia">Copiar bloque</button>
+    </div>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="modal" id="modal-prompt-uso" aria-labelledby="modal-prompt-uso-title">
+  <div class="modal-box">
+    <div class="modal-bar">
+      <span class="modal-k">Día 3 · Mensaje</span>
+      <button class="modal-close" type="button" data-close aria-label="Cerrar" autofocus>✕</button>
+    </div>
+    <div class="modal-body">
+    <div class="eyebrow">Mensaje para AI Studio</div>
+    <h2 class="day-title" id="modal-prompt-uso-title">Conecta el registro de uso</h2>
+    <p class="sub-note">Cambia los números de límite si quieres otros y envíalo en el chat de tu app en AI Studio.</p>
+    <div class="prompt panel">
+      <pre id="prompt-uso-ia">Cambio de seguridad: el límite diario de uso de la IA debe calcularse con la nueva tabla "uso_ia" de Supabase (columnas: id, owner_id, exitoso, created_at; owner_id y created_at se llenan solos). Esa tabla solo permite leer e insertar los registros propios; no permite editar ni borrar, así nadie recupera cupos borrando cosas.
+
+Reglas, todas en la ruta del servidor y con la sesión del usuario:
+1. Antes de llamar a la IA, cuenta los registros del usuario de hoy (desde las 00:00 UTC):
+   - Si tiene 10 o más con exitoso = true, rechaza: "Llegaste a tu límite de hoy."
+   - Si tiene 20 o más con exitoso = false, rechaza con el mismo mensaje.
+   - Si su último registro con exitoso = false tiene menos de 15 segundos, rechaza: "Espera unos segundos antes de intentarlo de nuevo."
+2. Si pasa las revisiones, inserta un registro con exitoso = false ANTES de llamar a la IA. Cuenta como intento aunque después falle.
+3. Solo si el resultado se generó y se guardó bien, inserta otro registro con exitoso = true.
+4. Si la app muestra usos disponibles, calcúlalos con los registros de hoy con exitoso = true.
+
+No cambies nada más. Al terminar, explícame en lenguaje sencillo qué cambiaste.</pre>
+      <button class="btn btn-primary btn-copy" type="button" data-copy="prompt-uso-ia">Copiar mensaje</button>
+    </div>
+    </div>
+  </div>
+</dialog>
+
 <script>
 
 document.querySelectorAll('.btn-copy').forEach(function(b){
@@ -563,7 +865,7 @@ document.querySelectorAll('.btn-copy').forEach(function(b){
   });
 })();
 document.getElementById('btn-empezar').addEventListener('click',function(){
-  var destino=document.getElementById('empezar-2');
+  var destino=document.getElementById('empezar-3');
   var suave=!window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   destino.scrollIntoView({behavior:suave?'smooth':'auto',block:'start'});
 });
