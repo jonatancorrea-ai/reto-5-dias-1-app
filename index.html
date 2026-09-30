@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Reto: 5 DÍAS, 1 APP · Comunidad MODO FUTURO</title>
 <meta name="description" content="Crea tu primera app publicada en internet, sin saber programar. Bóveda de recursos gratuitos.">
-<meta name="theme-color" content="#070b14">
+<meta name="theme-color" content="#f6f7f9">
 <link rel="icon" href="https://jonatancorrea-ai.github.io/reto-5-dias-1-app/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="https://jonatancorrea-ai.github.io/reto-5-dias-1-app/favicon-32.png">
 <link rel="apple-touch-icon" href="https://jonatancorrea-ai.github.io/reto-5-dias-1-app/apple-touch-icon.png">
@@ -26,6 +26,11 @@
 <meta name="twitter:title" content="Reto: 5 DÍAS, 1 APP · Comunidad MODO FUTURO">
 <meta name="twitter:description" content="Crea tu primera app publicada en internet, sin saber programar. Bóveda de recursos gratuitos.">
 <meta name="twitter:image" content="https://jonatancorrea-ai.github.io/reto-5-dias-1-app/og-image.png">
+<script>
+(function(){var t='light';try{var g=localStorage.getItem('reto-tema');if(g==='dark'||g==='light')t=g;}catch(e){}
+document.documentElement.setAttribute('data-theme',t);
+var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',t==='dark'?'#070b14':'#f6f7f9');})();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Poppins:wght@500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
@@ -313,6 +318,60 @@ h1{font-weight:800;letter-spacing:-.025em;}
   .copy-grid{grid-template-columns:1fr;}
   .copy-card{padding:18px 20px;}
 }
+/* ═══ Día 4: lista de pruebas y versión compacta en celular ═══ */
+#empezar-4{scroll-margin-top:52px;}
+.checks{list-style:none;margin-top:20px;padding:6px 28px;}
+.checks li{position:relative;padding:14px 0 14px 30px;font-size:14.5px;line-height:1.6;color:var(--text-2);border-bottom:1px solid var(--line);}
+.checks li:last-child{border-bottom:none;}
+.checks li::before{content:'';position:absolute;left:0;top:18px;width:17px;height:17px;border:1.5px solid var(--blue-2);border-radius:50%;}
+.checks li::after{content:'';position:absolute;left:5px;top:23px;width:7px;height:4px;border-left:1.6px solid var(--blue);border-bottom:1.6px solid var(--blue);transform:rotate(-45deg);}
+.key-name{overflow-wrap:anywhere;}
+.track-today{display:none;}
+@media (max-width:760px){
+  .day,.past{padding-top:56px;}
+  .sub{margin-top:44px;}
+  .row{padding:16px 0;}
+  .checks{padding:4px 20px;}
+  .checks li{padding:12px 0 12px 30px;}
+  .checks li::before{top:16px;}
+  .checks li::after{top:21px;}
+  .track{flex-direction:row;border-left:none;border-top:1px solid var(--line-strong);margin-top:20px;}
+  .step{padding:14px 4px 0 0;}
+  .step .tick{top:-5px;left:0;}
+  .step .n{font-size:11px;letter-spacing:.04em;}
+  .step .name{display:none;}
+  .track-today{display:block;margin-top:14px;font-size:14px;font-weight:700;line-height:1.4;color:var(--blue);}
+  .past-grid{gap:12px;}
+  .kit-card{padding:20px;gap:6px;}
+  .kit-desc{display:none;}
+}
+/* ═══ Tema claro (predeterminado) e interruptor ═══ */
+:root[data-theme="light"]{--bg:#f6f7f9;--bg-2:#e9eef6;--glass:rgba(255,255,255,.64);--glass-2:rgba(255,255,255,.9);--line:rgba(30,58,110,.14);--line-strong:rgba(30,58,110,.28);--text:#0a1224;--text-2:#46536e;--text-3:#6b7896;--blue:#2f5fae;--blue-2:#5b8fd9;--blue-3:#3f6fbf;--slate:#c5cee0;color-scheme:light;}
+:root[data-theme="dark"]{color-scheme:dark;}
+[data-theme="light"] body::before{background:
+  linear-gradient(115deg,transparent 38%,rgba(111,159,224,.14) 52%,transparent 64%),
+  radial-gradient(900px 600px at 85% 8%,rgba(111,159,224,.34),transparent 60%),
+  radial-gradient(700px 500px at 10% 70%,rgba(169,203,242,.42),transparent 65%),
+  linear-gradient(180deg,#f8f9fb 0%,#eaeff7 55%,#f5f7fa 100%);}
+[data-theme="light"] .panel{box-shadow:0 18px 44px rgba(30,58,110,.11),inset 0 1px 0 #fff;}
+[data-theme="light"] h1 .accent{background:linear-gradient(180deg,#6b9be0 0%,#3f6fbf 52%,#2a4f96 100%);-webkit-background-clip:text;background-clip:text;color:transparent;}
+[data-theme="light"] .btn-primary,[data-theme="light"] .pill{background:linear-gradient(180deg,#6b9be0 0%,#3f6fbf 60%,#3763b3 100%);color:#fff;box-shadow:0 10px 26px rgba(63,111,191,.30),inset 0 1px 0 rgba(255,255,255,.35);}
+[data-theme="light"] .btn-primary:hover{box-shadow:0 16px 36px rgba(63,111,191,.40),inset 0 1px 0 rgba(255,255,255,.4);}
+[data-theme="light"] .live b{box-shadow:0 0 10px rgba(47,95,174,.5);}
+[data-theme="light"] .step.now .tick{box-shadow:0 0 12px rgba(47,95,174,.55);}
+[data-theme="light"] .ex{background:rgba(63,111,191,.06);}
+[data-theme="light"] .modal::backdrop{background:rgba(10,18,36,.5);}
+[data-theme="light"] .modal-box{background:linear-gradient(180deg,#ffffff,#f1f5fb);box-shadow:0 40px 90px rgba(20,40,80,.35);}
+[data-theme="light"] .modal-close{background:#fff;}
+[data-theme="light"] .btn-ghost:hover,[data-theme="light"] .chip:hover{background:#fff;}
+.theme-tools{display:flex;align-items:center;gap:14px;}
+.theme-toggle{width:38px;height:38px;flex:none;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid var(--line);background:var(--glass);color:var(--text-2);cursor:pointer;padding:0;font-family:inherit;}
+.theme-toggle svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+.theme-toggle .i-sun{display:none;} .theme-toggle .i-moon{display:block;}
+[data-theme="dark"] .theme-toggle .i-sun{display:block;} [data-theme="dark"] .theme-toggle .i-moon{display:none;}
+.theme-toggle:hover{border-color:var(--blue);color:var(--text);}
+.theme-toggle:focus-visible{outline:2px solid var(--blue);outline-offset:3px;}
+@media (max-width:760px){.theme-tools{gap:10px;}}
 </style>
 </head>
 <body>
@@ -320,14 +379,20 @@ h1{font-weight:800;letter-spacing:-.025em;}
 
   <div class="topbar">
     <div class="mark">MODO FUTURO <span class="bolt">⚡</span></div>
-    <div class="tagline-top">Reto</div>
+    <div class="theme-tools">
+      <div class="tagline-top">Reto</div>
+      <button class="theme-toggle" type="button" id="btn-tema" aria-label="Cambiar a modo oscuro" title="Cambiar tema">
+        <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
+        <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6"/></svg>
+      </button>
+    </div>
   </div>
 
   <header class="head">
    <div class="head-main">
     <h1>5 días,<span class="accent">1 app</span></h1>
     <p class="lede">Crea tu primera app con IA, sin saber programar.</p>
-    <div class="head-cta"><button class="btn btn-primary btn-start" type="button" id="btn-empezar">Ir al Día 3</button></div>
+    <div class="head-cta"><button class="btn btn-primary btn-start" type="button" id="btn-empezar">Ir al Día 4</button></div>
    </div>
    <div class="head-side panel">
     <ul class="facts">
@@ -335,7 +400,7 @@ h1{font-weight:800;letter-spacing:-.025em;}
       <li class="fact"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18.5 14.4c1.8.8 3 2.8 3 5.6"/></svg><span><b>Exclusivo para la comunidad</b>MODO FUTURO ⚡</span></li>
       <li class="fact"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/><path d="M12 12l7-7M16 3.5V8h4.5"/></svg><span><b>Ideal para</b>creadores, marcas y negocios</span></li>
     </ul>
-    <div class="live"><b></b>Día 3 disponible</div>
+    <div class="live"><b></b>Día 4 disponible</div>
    </div>
   </header>
 
@@ -344,127 +409,87 @@ h1{font-weight:800;letter-spacing:-.025em;}
     <ol class="track">
       <li class="step done"><span class="tick"></span><div class="n">Día 1</div><div class="name">Plan y construcción</div></li>
       <li class="step done"><span class="tick"></span><div class="n">Día 2</div><div class="name">Base de datos</div></li>
-      <li class="step now"><span class="tick"></span><div class="n">Día 3</div><div class="name">Pruebas y ajustes</div></li>
-      <li class="step"><span class="tick"></span><div class="n">Día 4</div><div class="name">Publicar en internet</div></li>
+      <li class="step done"><span class="tick"></span><div class="n">Día 3</div><div class="name">Pruebas y ajustes</div></li>
+      <li class="step now"><span class="tick"></span><div class="n">Día 4</div><div class="name">Publicar en internet</div></li>
       <li class="step"><span class="tick"></span><div class="n">Día 5</div><div class="name">Lanzamiento</div></li>
     </ol>
+    <p class="track-today">Hoy: Publicar en internet</p>
   </section>
 
 
 
 
-  <!-- ═══════════ DÍA 3 ═══════════ -->
-  <section class="day" id="dia-3">
-    <div class="eyebrow">Día 3 · Disponible</div>
-    <h2 class="day-title" id="empezar-3">Pon a prueba tu app y protégela</h2>
-    <p class="day-intro">Hoy usas tu app como lo haría una persona real, corriges lo que falle y la proteges antes de publicarla mañana. Todo gratis y sin escribir código.</p>
-    <!--VIDEO-DIA-3: agregar aquí los enlaces del video 3-->
+  <!-- ═══════════ DÍA 4 ═══════════ -->
+  <section class="day" id="dia-4">
+    <div class="eyebrow">Día 4 · Disponible</div>
+    <h2 class="day-title" id="empezar-4">Publica tu app en internet</h2>
+    <p class="day-intro">Hoy tu app sale de AI Studio y queda en una dirección propia que cualquier persona puede abrir. Gratis con GitHub y Vercel.</p>
+    <!--VIDEO-DIA-4: agregar aquí los enlaces del video 4-->
 
     <div class="sub reveal">
-      <h3 class="sub-title">Prueba tu app como un usuario real</h3>
-      <p class="sub-note">Hazlo en la vista previa de Google AI Studio. Si algo falla, cuéntale a AI Studio exactamente qué pasó, un problema por mensaje.</p>
+      <h3 class="sub-title">Publícala, paso a paso</h3>
+      <p class="sub-note">GitHub guarda el código de tu app. Vercel lo toma de ahí y lo pone en internet.</p>
       <ol class="rows panel">
-        <li class="row"><div class="tag">Prueba 1</div><div><h3>Crea una cuenta</h3><p>Regístrate con un correo real. Si tu app pide confirmar el correo, revisa que el mensaje te llegue (mira también en spam).</p></div></li>
-        <li class="row"><div class="tag">Prueba 2</div><div><h3>Cierra sesión y vuelve a entrar</h3><p>Tu cuenta y tu información deben seguir ahí, sin pedirte configurar todo de nuevo.</p></div></li>
-        <li class="row"><div class="tag">Prueba 3</div><div><h3>Revisa que se guarde de verdad</h3><p>Crea algo en tu app y luego abre Supabase, en Table Editor. Debe aparecer en su tabla. Si no aparece, tu app todavía no está guardando en la base de datos.</p></div></li>
-        <li class="row"><div class="tag">Prueba 4</div><div><h3>Ábrela en dos dispositivos</h3><p>Entra con la misma cuenta desde tu celular y tu computadora. Debes ver lo mismo en ambos. Si ves cosas distintas, tu app guarda en el navegador y no en Supabase.</p></div></li>
-        <li class="row"><div class="tag">Prueba 5</div><div><h3>Comprueba la privacidad</h3><p>Crea una segunda cuenta con otro correo. No debe ver nada de la primera: cada persona solo ve lo suyo.</p></div></li>
-      </ol>
-    </div>
-
-    <div class="sub reveal">
-      <h3 class="sub-title">Correos de confirmación profesionales</h3>
-      <p class="sub-note">Solo si tu app tiene registro de usuarios. El correo gratis de Supabase solo llega a tu propio equipo, así que nadie más podría registrarse. Con Resend los correos salen desde tu dominio y solo entran personas con correos reales.</p>
-      <ol class="rows panel">
-        <li class="row"><div class="tag">Paso 1</div><div><h3>Crea tu cuenta gratis en Resend</h3><p>Entra a resend.com y regístrate. El plan gratis alcanza para unos 100 correos al día.</p></div></li>
-        <li class="row"><div class="tag">Paso 2</div><div><h3>Verifica tu dominio</h3><p>En la sección Domains agrega tu dominio. Resend te mostrará unos datos que debes copiar en el lugar donde compraste tu dominio. Espera a que aparezca en verde como Verified.</p></div></li>
-        <li class="row"><div class="tag">Paso 3</div><div><h3>Crea una llave de envío</h3><p>En API Keys presiona Create API Key, elige el permiso Sending access y tu dominio. Guarda la llave en un lugar privado: solo se muestra una vez.</p></div></li>
-        <li class="row"><div class="tag">Paso 4</div><div><h3>Conéctala en Supabase</h3><p>En tu proyecto abre Authentication, luego Emails y la pestaña SMTP Settings. Activa Enable custom SMTP y llena: Host smtp.resend.com, Port 465, Username resend, Password tu llave, Sender email un correo con tu dominio y Sender name el nombre de tu app. Presiona Save.</p></div></li>
-        <li class="row"><div class="tag">Paso 5</div><div><h3>Activa la confirmación</h3><p>En Authentication, abre Sign In / Providers y luego Email. Revisa que Confirm email esté activado.</p></div></li>
-        <li class="row"><div class="tag">Paso 6</div><div><h3>Pon tu correo en español</h3><p>En Authentication, Emails, pestaña Templates, abre Confirm signup. Cambia el asunto y pega la plantilla que encuentras justo abajo.</p></div></li>
+        <li class="row"><div class="tag">Paso 1</div><div><h3>Guárdala en GitHub</h3><p>En AI Studio presiona el ícono de GitHub, arriba a la derecha. Conecta tu cuenta, escribe el nombre de tu app en minúsculas y elige Private para que nadie vea tu código.</p></div></li>
+        <li class="row"><div class="tag">Paso 2</div><div><h3>Revisa que no haya claves a la vista</h3><p>Abre tu app en github.com. Si ves .env.example, está bien: es una plantilla vacía. Si ves .env o .env.local, tus claves quedaron guardadas ahí: crea claves nuevas en cada servicio antes de seguir.</p></div></li>
+        <li class="row"><div class="tag">Paso 3</div><div><h3>Impórtala en Vercel</h3><p>Entra a vercel.com con tu cuenta de GitHub (plan Hobby, gratis). Presiona Add New, luego Project, y elige tu app. El nombre del proyecto será tu dirección: tuapp.vercel.app.</p></div></li>
+        <li class="row"><div class="tag">Paso 4</div><div><h3>Agrega tus claves</h3><p>En esa misma pantalla abre Environment Variables, el espacio privado donde Vercel guarda tus claves. Pega ahí la plantilla de abajo ya completa.</p></div></li>
+        <li class="row"><div class="tag">Paso 5</div><div><h3>Publícala</h3><p>Presiona Deploy y espera de 1 a 3 minutos hasta ver Ready en verde. Si no aparece ninguna publicación, entra a Deployments, presiona los tres puntos, luego Create Deployment y escribe main.</p></div></li>
       </ol>
       <div class="copy-grid">
-        <button class="copy-card panel" type="button" data-open="modal-plantilla">
-          <span class="copy-k">Plantilla de correo</span>
-          <span class="copy-title">Correo de confirmación en español</span>
-          <span class="copy-desc">Diseño limpio con tu nombre y tu color, listo para pegar en Supabase.</span>
-          <span class="copy-open">Ver y copiar</span>
-        </button>
-      </div>
-      <p class="sub-note">¿No tienes dominio propio? Puedes desactivar Confirm email para que tu comunidad pueda registrarse, aunque así se aceptan correos falsos.</p>
-    </div>
-
-    <div class="sub reveal">
-      <h3 class="sub-title">El mensaje de seguridad para AI Studio</h3>
-      <p class="sub-note">Revisa tu app completa y la deja lista para recibir personas reales.</p>
-      <div class="copy-grid">
-        <button class="copy-card panel" type="button" data-open="modal-seguridad">
-          <span class="copy-k">Mensaje para AI Studio</span>
-          <span class="copy-title">Seguridad de nivel profesional</span>
-          <span class="copy-desc">Guardado, llaves, protección de la IA, archivos y errores en un solo mensaje.</span>
+        <button class="copy-card panel" type="button" data-open="modal-claves">
+          <span class="copy-k">Plantilla de claves</span>
+          <span class="copy-title">Tus claves para Vercel</span>
+          <span class="copy-desc">Qué claves pegar y dónde conseguir cada una.</span>
           <span class="copy-open">Ver y copiar</span>
         </button>
       </div>
     </div>
 
     <div class="sub reveal">
-      <h3 class="sub-title">Límites de IA a prueba de trampas</h3>
-      <p class="sub-note">Solo si tu app usa IA. El uso gratis de la IA se comparte entre todos tus usuarios. Este registro cuenta cada intento y nadie lo puede borrar, así una sola persona no puede gastar el cupo de todos.</p>
+      <h3 class="sub-title">Conecta tu dirección en Supabase</h3>
+      <p class="sub-note">Solo si tu app tiene registro de usuarios. Así el correo de confirmación abre tu app y no una página con error.</p>
       <ol class="rows panel">
-        <li class="row"><div class="tag">Paso 1</div><div><h3>Crea el registro en Supabase</h3><p>En tu proyecto abre SQL Editor, presiona New query, pega el bloque del Paso 1 y presiona Run. Debe aparecer "Success. No rows returned".</p></div></li>
-        <li class="row"><div class="tag">Paso 2</div><div><h3>Conéctalo en AI Studio</h3><p>Copia el mensaje del Paso 2, cambia los números de límite si quieres otros y envíalo en el chat de tu app.</p></div></li>
-        <li class="row"><div class="tag">Paso 3</div><div><h3>Pruébalo</h3><p>Usa la IA dos veces seguidas: la segunda debe pedirte esperar. Luego borra algo que hayas creado: tus usos disponibles no deben subir.</p></div></li>
+        <li class="row"><div class="tag">Paso 1</div><div><h3>Escribe tu dirección principal</h3><p>En tu proyecto abre Authentication y luego URL Configuration. En Site URL pega tu dirección completa, por ejemplo https://tuapp.vercel.app, sin "/" al final. Presiona Save.</p></div></li>
+        <li class="row"><div class="tag">Paso 2</div><div><h3>Autoriza tu dirección</h3><p>En Redirect URLs presiona Add URL, pega tu dirección seguida de /** (por ejemplo https://tuapp.vercel.app/**) y guarda.</p></div></li>
       </ol>
-      <div class="copy-grid">
-        <button class="copy-card panel" type="button" data-open="modal-sql-uso">
-          <span class="copy-k">Paso 1 · Supabase</span>
-          <span class="copy-title">Bloque para crear el registro</span>
-          <span class="copy-desc">Crea la tabla de uso que nadie puede editar ni borrar.</span>
-          <span class="copy-open">Ver y copiar</span>
-        </button>
-        <button class="copy-card panel" type="button" data-open="modal-prompt-uso">
-          <span class="copy-k">Paso 2 · AI Studio</span>
-          <span class="copy-title">Mensaje para conectar el registro</span>
-          <span class="copy-desc">Aplica los límites diarios y la espera entre intentos.</span>
-          <span class="copy-open">Ver y copiar</span>
-        </button>
-      </div>
     </div>
 
     <div class="sub reveal">
-      <h3 class="sub-title">Cuidados importantes</h3>
-      <ul class="rows panel">
-        <li class="row"><div class="tag">Llaves</div><div><h3>Nunca compartas tus llaves</h3><p>La llave de Resend va solo en Supabase. No la pegues en el chat de AI Studio, en capturas ni en ningún archivo público.</p></div></li>
-        <li class="row"><div class="tag">Scripts</div><div><h3>No ejecutes scripts repetidos</h3><p>Si AI Studio te sugiere un script para crear tablas que ya tienes, no lo ejecutes: puede duplicar reglas o reemplazar las que ya funcionan. Pregúntale primero qué cambia.</p></div></li>
-        <li class="row"><div class="tag">Confirmación</div><div><h3>La página de error es normal por ahora</h3><p>Al confirmar tu correo puede abrirse una página con error, porque tu app todavía no tiene su dirección en internet. Tu correo igual queda confirmado. Eso se resuelve mañana.</p></div></li>
-        <li class="row"><div class="tag">Errores</div><div><h3>Un problema por mensaje</h3><p>Describe qué hiciste, qué esperabas y qué pasó. Si algo se daña, vuelve a la versión anterior con el botón Restore.</p></div></li>
+      <h3 class="sub-title">Pruébala en su dirección real</h3>
+      <p class="sub-note">Hazlo desde tu celular, como lo haría cualquier persona.</p>
+      <ul class="checks panel">
+        <li>Crea una cuenta con otro correo: el enlace de confirmación debe abrir tu app.</li>
+        <li>Usa la función principal de tu app y revisa que se guarde.</li>
+        <li>Recarga la página: tu sesión y tu información siguen ahí.</li>
+        <li>Si tienes enlaces para compartir, ábrelos en una ventana privada (incógnito).</li>
+        <li>Ábrela también en tu computadora: debes ver lo mismo.</li>
       </ul>
     </div>
 
     <div class="sub reveal">
-      <h3 class="sub-title">Las herramientas de hoy</h3>
-      <div class="tools">
-        <div class="tool panel">
-          <div class="k">Correos</div>
-          <h3>Resend</h3>
-          <p>Envía los correos de confirmación desde tu propio dominio. Gratis.</p>
-          <a class="btn btn-primary" href="https://resend.com" target="_blank" rel="noopener">Abrir Resend</a>
-        </div>
-        <div class="tool panel">
-          <div class="k">Construcción</div>
-          <h3>Google AI Studio</h3>
-          <p>Donde pruebas tu app y le pides los ajustes de seguridad.</p>
-          <a class="btn btn-ghost" href="https://aistudio.google.com" target="_blank" rel="noopener">Abrir AI Studio</a>
-        </div>
+      <h3 class="sub-title">Mantén tu app al día</h3>
+      <ul class="rows panel">
+        <li class="row"><div class="tag">Cambios</div><div><h3>Cada ajuste se publica solo</h3><p>Cuando cambies algo en AI Studio, presiona otra vez el ícono de GitHub para subirlo. Vercel publica la nueva versión en unos minutos.</p></div></li>
+        <li class="row"><div class="tag">Errores</div><div><h3>Si aparece Error en rojo</h3><p>En Deployments abre la publicación fallida, copia el texto en rojo de Build Logs y envíalo con el mensaje de rescate.</p></div></li>
+        <li class="row"><div class="tag">Claves</div><div><h3>Tus claves solo van en Vercel</h3><p>Nunca en el chat de AI Studio, en GitHub ni en capturas de pantalla. Si alguna quedó a la vista, créala de nuevo.</p></div></li>
+      </ul>
+      <div class="copy-grid">
+        <button class="copy-card panel" type="button" data-open="modal-rescate">
+          <span class="copy-k">Mensaje para AI Studio</span>
+          <span class="copy-title">Mensaje de rescate</span>
+          <span class="copy-desc">Explica el error en lenguaje sencillo y lo corrige.</span>
+          <span class="copy-open">Ver y copiar</span>
+        </button>
       </div>
     </div>
 
     <div class="task panel reveal">
       <div class="eyebrow">Tu tarea de hoy</div>
-      <h3>Prueba tu app y déjala protegida</h3>
-      <p>Haz las 5 pruebas y envía el mensaje de seguridad. Cuando todo funcione, compártelo en la comunidad: mañana tu app sale a internet.</p>
+      <h3>Publica tu app y comparte tu dirección</h3>
+      <p>Cuando abra bien desde tu celular, comparte tu dirección en la comunidad. Mañana es el lanzamiento.</p>
       <div class="task-actions">
-        <a class="btn btn-primary" href="https://aistudio.google.com" target="_blank" rel="noopener">Ir a AI Studio</a>
+        <a class="btn btn-primary" href="https://vercel.com/new" target="_blank" rel="noopener">Ir a Vercel</a>
         <a class="btn btn-ghost" href="https://chat.whatsapp.com/ErqyyFCILQFCrt0GjFIvIf?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener">Compartir en El Club</a>
       </div>
     </div>
@@ -487,6 +512,13 @@ h1{font-weight:800;letter-spacing:-.025em;}
         <span class="kit-title">Dale memoria a tu app con una base de datos</span>
         <span class="kit-desc">Conecta tu app a Supabase y crea tus tablas con seguridad incluida.</span>
         <span class="kit-meta">7 pasos · 4 cuidados · Video</span>
+        <span class="kit-open">Ver kit completo</span>
+      </button>
+      <button class="kit-card panel" type="button" data-open="modal-dia-3">
+        <span class="kit-top"><span class="kit-tag">Día 3</span><span class="kit-done">Completado</span></span>
+        <span class="kit-title">Pon a prueba tu app y protégela</span>
+        <span class="kit-desc">Pruebas reales, correos profesionales y seguridad antes de publicar.</span>
+        <span class="kit-meta">5 pruebas · 4 textos para copiar · Video</span>
         <span class="kit-open">Ver kit completo</span>
       </button>
     </div>
@@ -702,6 +734,134 @@ Si el código necesita ajustes para funcionar con esto, hazlos. Muéstrame el sc
   </div>
 </dialog>
 
+<dialog class="modal" id="modal-dia-3" aria-labelledby="modal-d3-title">
+  <div class="modal-box">
+    <div class="modal-bar">
+      <span class="modal-k">Kit del Día 3</span>
+      <button class="modal-close" type="button" data-close aria-label="Cerrar" autofocus>✕</button>
+    </div>
+    <div class="modal-body">
+    <div class="eyebrow">Día 3 · Pruebas y ajustes</div>
+    <h2 class="day-title" id="modal-d3-title">Pon a prueba tu app y protégela</h2>
+    <p class="day-intro">Hoy usas tu app como lo haría una persona real, corriges lo que falle y la proteges antes de publicarla mañana. Todo gratis y sin escribir código.</p>
+    <div class="watch">
+      <span class="watch-k">Mira el video</span>
+      <a class="chip" href="https://vt.tiktok.com/ZSbBgTQGP/" target="_blank" rel="noopener">TikTok</a>
+      <a class="chip" href="https://www.instagram.com/reel/Dd1PbcLNgIa/?stkn=MWprNzczNXo2dXN5Yg==" target="_blank" rel="noopener">Instagram</a>
+    </div>
+
+    <div class="sub">
+      <h3 class="sub-title">Prueba tu app como un usuario real</h3>
+      <p class="sub-note">Hazlo en la vista previa de Google AI Studio. Si algo falla, cuéntale a AI Studio exactamente qué pasó, un problema por mensaje.</p>
+      <ol class="rows panel">
+        <li class="row"><div class="tag">Prueba 1</div><div><h3>Crea una cuenta</h3><p>Regístrate con un correo real. Si tu app pide confirmar el correo, revisa que el mensaje te llegue (mira también en spam).</p></div></li>
+        <li class="row"><div class="tag">Prueba 2</div><div><h3>Cierra sesión y vuelve a entrar</h3><p>Tu cuenta y tu información deben seguir ahí, sin pedirte configurar todo de nuevo.</p></div></li>
+        <li class="row"><div class="tag">Prueba 3</div><div><h3>Revisa que se guarde de verdad</h3><p>Crea algo en tu app y luego abre Supabase, en Table Editor. Debe aparecer en su tabla. Si no aparece, tu app todavía no está guardando en la base de datos.</p></div></li>
+        <li class="row"><div class="tag">Prueba 4</div><div><h3>Ábrela en dos dispositivos</h3><p>Entra con la misma cuenta desde tu celular y tu computadora. Debes ver lo mismo en ambos. Si ves cosas distintas, tu app guarda en el navegador y no en Supabase.</p></div></li>
+        <li class="row"><div class="tag">Prueba 5</div><div><h3>Comprueba la privacidad</h3><p>Crea una segunda cuenta con otro correo. No debe ver nada de la primera: cada persona solo ve lo suyo.</p></div></li>
+      </ol>
+    </div>
+
+    <div class="sub">
+      <h3 class="sub-title">Correos de confirmación profesionales</h3>
+      <p class="sub-note">Solo si tu app tiene registro de usuarios. El correo gratis de Supabase solo llega a tu propio equipo, así que nadie más podría registrarse. Con Resend los correos salen desde tu dominio y solo entran personas con correos reales.</p>
+      <ol class="rows panel">
+        <li class="row"><div class="tag">Paso 1</div><div><h3>Crea tu cuenta gratis en Resend</h3><p>Entra a resend.com y regístrate. El plan gratis alcanza para unos 100 correos al día.</p></div></li>
+        <li class="row"><div class="tag">Paso 2</div><div><h3>Verifica tu dominio</h3><p>En la sección Domains agrega tu dominio. Resend te mostrará unos datos que debes copiar en el lugar donde compraste tu dominio. Espera a que aparezca en verde como Verified.</p></div></li>
+        <li class="row"><div class="tag">Paso 3</div><div><h3>Crea una llave de envío</h3><p>En API Keys presiona Create API Key, elige el permiso Sending access y tu dominio. Guarda la llave en un lugar privado: solo se muestra una vez.</p></div></li>
+        <li class="row"><div class="tag">Paso 4</div><div><h3>Conéctala en Supabase</h3><p>En tu proyecto abre Authentication, luego Emails y la pestaña SMTP Settings. Activa Enable custom SMTP y llena: Host smtp.resend.com, Port 465, Username resend, Password tu llave, Sender email un correo con tu dominio y Sender name el nombre de tu app. Presiona Save.</p></div></li>
+        <li class="row"><div class="tag">Paso 5</div><div><h3>Activa la confirmación</h3><p>En Authentication, abre Sign In / Providers y luego Email. Revisa que Confirm email esté activado.</p></div></li>
+        <li class="row"><div class="tag">Paso 6</div><div><h3>Pon tu correo en español</h3><p>En Authentication, Emails, pestaña Templates, abre Confirm signup. Cambia el asunto y pega la plantilla que encuentras justo abajo.</p></div></li>
+      </ol>
+      <div class="copy-grid">
+        <button class="copy-card panel" type="button" data-open="modal-plantilla">
+          <span class="copy-k">Plantilla de correo</span>
+          <span class="copy-title">Correo de confirmación en español</span>
+          <span class="copy-desc">Diseño limpio con tu nombre y tu color, listo para pegar en Supabase.</span>
+          <span class="copy-open">Ver y copiar</span>
+        </button>
+      </div>
+      <p class="sub-note">¿No tienes dominio propio? Puedes desactivar Confirm email para que tu comunidad pueda registrarse, aunque así se aceptan correos falsos.</p>
+    </div>
+
+    <div class="sub">
+      <h3 class="sub-title">El mensaje de seguridad para AI Studio</h3>
+      <p class="sub-note">Revisa tu app completa y la deja lista para recibir personas reales.</p>
+      <div class="copy-grid">
+        <button class="copy-card panel" type="button" data-open="modal-seguridad">
+          <span class="copy-k">Mensaje para AI Studio</span>
+          <span class="copy-title">Seguridad de nivel profesional</span>
+          <span class="copy-desc">Guardado, llaves, protección de la IA, archivos y errores en un solo mensaje.</span>
+          <span class="copy-open">Ver y copiar</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="sub">
+      <h3 class="sub-title">Límites de IA a prueba de trampas</h3>
+      <p class="sub-note">Solo si tu app usa IA. El uso gratis de la IA se comparte entre todos tus usuarios. Este registro cuenta cada intento y nadie lo puede borrar, así una sola persona no puede gastar el cupo de todos.</p>
+      <ol class="rows panel">
+        <li class="row"><div class="tag">Paso 1</div><div><h3>Crea el registro en Supabase</h3><p>En tu proyecto abre SQL Editor, presiona New query, pega el bloque del Paso 1 y presiona Run. Debe aparecer "Success. No rows returned".</p></div></li>
+        <li class="row"><div class="tag">Paso 2</div><div><h3>Conéctalo en AI Studio</h3><p>Copia el mensaje del Paso 2, cambia los números de límite si quieres otros y envíalo en el chat de tu app.</p></div></li>
+        <li class="row"><div class="tag">Paso 3</div><div><h3>Pruébalo</h3><p>Usa la IA dos veces seguidas: la segunda debe pedirte esperar. Luego borra algo que hayas creado: tus usos disponibles no deben subir.</p></div></li>
+      </ol>
+      <div class="copy-grid">
+        <button class="copy-card panel" type="button" data-open="modal-sql-uso">
+          <span class="copy-k">Paso 1 · Supabase</span>
+          <span class="copy-title">Bloque para crear el registro</span>
+          <span class="copy-desc">Crea la tabla de uso que nadie puede editar ni borrar.</span>
+          <span class="copy-open">Ver y copiar</span>
+        </button>
+        <button class="copy-card panel" type="button" data-open="modal-prompt-uso">
+          <span class="copy-k">Paso 2 · AI Studio</span>
+          <span class="copy-title">Mensaje para conectar el registro</span>
+          <span class="copy-desc">Aplica los límites diarios y la espera entre intentos.</span>
+          <span class="copy-open">Ver y copiar</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="sub">
+      <h3 class="sub-title">Cuidados importantes</h3>
+      <ul class="rows panel">
+        <li class="row"><div class="tag">Llaves</div><div><h3>Nunca compartas tus llaves</h3><p>La llave de Resend va solo en Supabase. No la pegues en el chat de AI Studio, en capturas ni en ningún archivo público.</p></div></li>
+        <li class="row"><div class="tag">Scripts</div><div><h3>No ejecutes scripts repetidos</h3><p>Si AI Studio te sugiere un script para crear tablas que ya tienes, no lo ejecutes: puede duplicar reglas o reemplazar las que ya funcionan. Pregúntale primero qué cambia.</p></div></li>
+        <li class="row"><div class="tag">Confirmación</div><div><h3>La página de error es normal por ahora</h3><p>Al confirmar tu correo puede abrirse una página con error, porque tu app todavía no tiene su dirección en internet. Tu correo igual queda confirmado. Se resuelve en el Día 4.</p></div></li>
+        <li class="row"><div class="tag">Errores</div><div><h3>Un problema por mensaje</h3><p>Describe qué hiciste, qué esperabas y qué pasó. Si algo se daña, vuelve a la versión anterior con el botón Restore.</p></div></li>
+      </ul>
+    </div>
+
+    <div class="sub">
+      <h3 class="sub-title">Las herramientas de hoy</h3>
+      <div class="tools">
+        <div class="tool panel">
+          <div class="k">Correos</div>
+          <h3>Resend</h3>
+          <p>Envía los correos de confirmación desde tu propio dominio. Gratis.</p>
+          <a class="btn btn-primary" href="https://resend.com" target="_blank" rel="noopener">Abrir Resend</a>
+        </div>
+        <div class="tool panel">
+          <div class="k">Construcción</div>
+          <h3>Google AI Studio</h3>
+          <p>Donde pruebas tu app y le pides los ajustes de seguridad.</p>
+          <a class="btn btn-ghost" href="https://aistudio.google.com" target="_blank" rel="noopener">Abrir AI Studio</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="task panel">
+      <div class="eyebrow">Tu tarea del Día 3</div>
+      <h3>Prueba tu app y déjala protegida</h3>
+      <p>Haz las 5 pruebas y envía el mensaje de seguridad. Cuando todo funcione, compártelo en la comunidad: en el Día 4 tu app sale a internet.</p>
+      <div class="task-actions">
+        <a class="btn btn-primary" href="https://aistudio.google.com" target="_blank" rel="noopener">Ir a AI Studio</a>
+        <a class="btn btn-ghost" href="https://chat.whatsapp.com/ErqyyFCILQFCrt0GjFIvIf?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4" target="_blank" rel="noopener">Compartir en El Club</a>
+      </div>
+    </div>
+    </div>
+  </div>
+</dialog>
+
 <dialog class="modal" id="modal-plantilla" aria-labelledby="modal-plantilla-title">
   <div class="modal-box">
     <div class="modal-bar">
@@ -840,6 +1000,64 @@ No cambies nada más. Al terminar, explícame en lenguaje sencillo qué cambiast
   </div>
 </dialog>
 
+<dialog class="modal" id="modal-claves" aria-labelledby="modal-claves-title">
+  <div class="modal-box">
+    <div class="modal-bar">
+      <span class="modal-k">Día 4 · Plantilla</span>
+      <button class="modal-close" type="button" data-close aria-label="Cerrar" autofocus>✕</button>
+    </div>
+    <div class="modal-body">
+    <div class="eyebrow">Plantilla de claves</div>
+    <h2 class="day-title" id="modal-claves-title">Tus claves para Vercel</h2>
+    <p class="sub-note">Complétala en una nota privada de tu computadora, nunca en un chat. Luego pega el bloque completo en el campo Key de Environment Variables: Vercel separa cada clave solo. Si tu archivo .env.example usa otros nombres, usa esos.</p>
+    <div class="prompt panel">
+      <pre id="claves-vercel">NEXT_PUBLIC_SUPABASE_URL=pega-aqui-tu-direccion-de-supabase
+
+NEXT_PUBLIC_SUPABASE_ANON_KEY=pega-aqui-tu-llave-publica
+
+GEMINI_API_KEY=pega-aqui-tu-llave-de-gemini
+
+APP_URL=https://tuapp.vercel.app</pre>
+      <button class="btn btn-primary btn-copy" type="button" data-copy="claves-vercel">Copiar plantilla</button>
+    </div>
+    <div class="sub">
+      <h3 class="sub-title">Dónde conseguir cada una</h3>
+      <ul class="rows panel">
+        <li class="row"><div class="tag">Supabase</div><div><h3 class="key-name">NEXT_PUBLIC_SUPABASE_URL</h3><p>En la página principal de tu proyecto: la dirección que termina en supabase.co.</p></div></li>
+        <li class="row"><div class="tag">Supabase</div><div><h3 class="key-name">NEXT_PUBLIC_SUPABASE_ANON_KEY</h3><p>En API Keys: la llave pública que empieza con sb_publishable_. Nunca la que empieza con sb_secret_.</p></div></li>
+        <li class="row"><div class="tag">Gemini</div><div><h3 class="key-name">GEMINI_API_KEY</h3><p>Solo si tu app usa IA. En Google AI Studio presiona Get API key y crea una. Es privada, por eso su nombre no empieza con NEXT_PUBLIC_.</p></div></li>
+        <li class="row"><div class="tag">Tu app</div><div><h3 class="key-name">APP_URL</h3><p>Tu dirección en Vercel, sin "/" al final. Si tu app no la usa, borra esa línea.</p></div></li>
+      </ul>
+    </div>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="modal" id="modal-rescate" aria-labelledby="modal-rescate-title">
+  <div class="modal-box">
+    <div class="modal-bar">
+      <span class="modal-k">Día 4 · Mensaje</span>
+      <button class="modal-close" type="button" data-close aria-label="Cerrar" autofocus>✕</button>
+    </div>
+    <div class="modal-body">
+    <div class="eyebrow">Mensaje para AI Studio</div>
+    <h2 class="day-title" id="modal-rescate-title">Mensaje de rescate</h2>
+    <p class="sub-note">Envíalo en el chat de tu app en AI Studio, con el texto en rojo de Vercel donde se indica. Cuando lo corrija, súbelo con el ícono de GitHub y Vercel publica de nuevo.</p>
+    <div class="prompt panel">
+      <pre id="prompt-rescate">Publiqué mi app en Vercel y la publicación falló. Este es el error que muestra Vercel en Build Logs:
+
+[PEGA AQUÍ EL TEXTO EN ROJO]
+
+1. Explícame en lenguaje sencillo qué significa.
+2. Si el problema está en el código, corrígelo sin cambiar el diseño ni lo que ya funciona.
+3. Si el problema es una clave o una configuración de Vercel o Supabase, no toques el código: dime exactamente qué debo cambiar y dónde.
+4. Nunca me pidas pegar mis claves en este chat.</pre>
+      <button class="btn btn-primary btn-copy" type="button" data-copy="prompt-rescate">Copiar mensaje</button>
+    </div>
+    </div>
+  </div>
+</dialog>
+
 <script>
 
 document.querySelectorAll('.btn-copy').forEach(function(b){
@@ -852,20 +1070,29 @@ document.querySelectorAll('.btn-copy').forEach(function(b){
 });
 
 (function(){
-  var ultimo=null;
-  function abrir(id,btn){var d=document.getElementById(id);if(!d)return;ultimo=btn;
+  function abrir(id,btn){var d=document.getElementById(id);if(!d)return;d._origen=btn;
     if(typeof d.showModal==='function'){d.showModal();}else{d.setAttribute('open','');}
     document.body.classList.add('modal-open');d.querySelector('.modal-body').scrollTop=0;}
-  function cerrar(d){if(typeof d.close==='function'){d.close();}else{d.removeAttribute('open');}}
+  function cerrar(d){if(typeof d.close==='function'){d.close();}else{d.removeAttribute('open');d.dispatchEvent(new Event('close'));}}
   document.querySelectorAll('[data-open]').forEach(function(b){b.addEventListener('click',function(){abrir(b.dataset.open,b);});});
   document.querySelectorAll('dialog.modal').forEach(function(d){
-    d.addEventListener('close',function(){document.body.classList.remove('modal-open');if(ultimo)ultimo.focus();});
+    d.addEventListener('close',function(){
+      if(!document.querySelector('dialog.modal[open]'))document.body.classList.remove('modal-open');
+      if(d._origen)d._origen.focus();});
     d.addEventListener('click',function(e){if(e.target===d)cerrar(d);});
     d.querySelectorAll('[data-close]').forEach(function(c){c.addEventListener('click',function(){cerrar(d);});});
   });
 })();
+(function(){
+  var b=document.getElementById('btn-tema'),root=document.documentElement;
+  function aplicar(t){root.setAttribute('data-theme',t);
+    b.setAttribute('aria-label',t==='dark'?'Cambiar a modo claro':'Cambiar a modo oscuro');
+    var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',t==='dark'?'#070b14':'#f6f7f9');}
+  aplicar(root.getAttribute('data-theme')==='dark'?'dark':'light');
+  b.addEventListener('click',function(){var t=root.getAttribute('data-theme')==='dark'?'light':'dark';aplicar(t);try{localStorage.setItem('reto-tema',t);}catch(e){}});
+})();
 document.getElementById('btn-empezar').addEventListener('click',function(){
-  var destino=document.getElementById('empezar-3');
+  var destino=document.getElementById('empezar-4');
   var suave=!window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   destino.scrollIntoView({behavior:suave?'smooth':'auto',block:'start'});
 });
